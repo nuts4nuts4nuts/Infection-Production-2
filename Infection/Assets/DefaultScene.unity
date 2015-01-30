@@ -1633,6 +1633,10 @@ Prefab:
       propertyPath: m_TagString
       value: InvaderPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 2336970, guid: 8a144e86b1619b044badec02cce453aa, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f51709f8d0ad6344e96719c78f38b959, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a144e86b1619b044badec02cce453aa, type: 2}
   m_RootGameObject: {fileID: 1005969607}
