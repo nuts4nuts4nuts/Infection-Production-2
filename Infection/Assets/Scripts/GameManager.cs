@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
-    // 0 = Player1's turn, 1 = Player2's turn, 2+ pause, menus, etc?
-    public int currentState = 0;
     private GameObject selectedPiece;
     private List<GameObject> possibleMovementTiles;
     private Color tileOldColor;
@@ -32,7 +30,7 @@ public class GameManager : MonoBehaviour {
             pieceOldColor = selectedPiece.renderer.material.color;
 
             //Highlight that joint!
-            selectedPiece.renderer.material.color = Color.blue;
+            selectedPiece.renderer.material.color = Color.magenta;
 
             return true;
         }
@@ -42,17 +40,23 @@ public class GameManager : MonoBehaviour {
 
     public bool MovePiece(GameObject tile) 
     {
+        selectedPiece.renderer.material.color = pieceOldColor;
+
         if(((TileFunctions)tile.GetComponent(typeof(TileFunctions))).isSelected)
         {
             Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
             selectedPiece.transform.position = newPos;
+            PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
+            pf.turnsTillMove = pf.cooldown;
+
+            selectedPiece = null;
+            UnHighlightMovementOptions();
+            return true;
         }
 
-        selectedPiece.renderer.material.color = pieceOldColor;
         selectedPiece = null;
         UnHighlightMovementOptions();
-
-        return true;
+        return false;
     }
 
     public void HighlightMovementOptions(List<GameObject> tiles)
