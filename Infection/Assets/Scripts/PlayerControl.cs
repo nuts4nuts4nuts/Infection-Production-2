@@ -52,55 +52,21 @@ public class PlayerControl : MonoBehaviour {
                 {
                     EndTurn();
                 }
-                else if (!isPieceSelected)
+                else if (hitObj.tag == currentPlayers[currentPlayer] && ((PieceFunctions)hitObj.GetComponent(typeof(PieceFunctions))).turnsTillMove <= 0)
                 {
-                    if (hitObj.tag == currentPlayers[currentPlayer] && ((PieceFunctions)hitObj.GetComponent(typeof(PieceFunctions))).turnsTillMove <= 0)
-                    {
-                        GameObject selectedPiece = hitInfo.collider.gameObject;
-                        isPieceSelected = gameManager.SelectPiece(selectedPiece);
-                        gameManager.HighlightMovementOptions(GeneratePossibleMoves(selectedPiece));
-                    }
+                    GameObject selectedPiece = hitInfo.collider.gameObject;
+                    gameManager.SelectPiece(selectedPiece, playerCam);
                 }
-                else
+                else if (hitInfo.collider.gameObject.tag == "Tile")
                 {
-                    if (hitInfo.collider.gameObject.tag == "Tile")
+                    if(isPieceSelected)
                     {
                         gameManager.MovePiece(hitInfo.collider.gameObject);
-                        isPieceSelected = false;
                     }
                 }
             }
 
         }
-    }
-
-    private List<GameObject> GeneratePossibleMoves(GameObject selectedPiece)
-    {
-        List<GameObject> tileList = new List<GameObject>();
-        Vector3 piecePos = selectedPiece.transform.position;
-        List<Vector2> pieceDirections = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions))).movementDirections; //really ugly, but I don't need to use it again
-
-        int tileSize = 1; //TODO: want to link this stronger.
-
-        foreach (Vector2 movement in pieceDirections)
-        {
-            Vector3 newPos = piecePos;
-            newPos.x += movement.x * tileSize;
-            newPos.y += movement.y * tileSize;
-
-            Vector3 direction = newPos - playerCam.transform.position;
-
-            RaycastHit hitInfo;
-            if (Physics.Raycast(playerCam.transform.position, direction, out hitInfo, 1000))
-            {
-                if (hitInfo.collider.gameObject.tag == "Tile")
-                {
-                    tileList.Add(hitInfo.collider.gameObject);
-                }
-            }
-        }
-
-        return tileList;
     }
 
     private void EndTurn()
@@ -113,9 +79,25 @@ public class PlayerControl : MonoBehaviour {
 
         foreach(GameObject piece in pieces)
         {
-            ((PieceFunctions)piece.GetComponent(typeof(PieceFunctions))).turnsTillMove -= 1;
+            PieceFunctions pf = ((PieceFunctions)piece.GetComponent(typeof(PieceFunctions)));
+            int turnsTillMove = pf.TurnPassed();
+
+            if(turnsTillMove <= 0 && pf.isIncubating)
+            {
+                gameManager.FinishIncubate(piece, playerCam);
+            }
         }
 
         print("Turn Ended!");
+    }
+
+    public void SelectPiece()
+    {
+        isPieceSelected = true;
+    }
+
+    public void UnselectPiece()
+    {
+        isPieceSelected = false;
     }
 }
