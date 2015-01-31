@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\PieceFunctions.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\TileFunctions.cs" />
+     <None Include="Assets\Models\tmp.txt.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)4.6.1/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

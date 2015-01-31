@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#define VIRION_DEBUG
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,14 +8,13 @@ public class GameManager : MonoBehaviour {
 
     private GameObject selectedPiece;
     private List<GameObject> possibleMovementTiles;
-    private Color tileOldColor;
-    private Color pieceOldColor;
 
 	// Use this for initialization
 	void Start ()
     {
+#if VIRION_DEBUG
         print("hello world!");
-
+#endif
         possibleMovementTiles = new List<GameObject>();
 	}
 
@@ -22,8 +23,6 @@ public class GameManager : MonoBehaviour {
         if(newPiece != selectedPiece)
         {
             selectedPiece = newPiece;
-
-            pieceOldColor = selectedPiece.renderer.material.color;
 
             //Highlight that joint!
             selectedPiece.renderer.material.color = Color.magenta;
@@ -77,18 +76,27 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+#if VIRION_DEBUG
             print("Incubation Blocked!");
+#endif
         }
     }
 
     public void MovePiece(GameObject tile) 
     {
-        if (((TileFunctions)tile.GetComponent(typeof(TileFunctions))).isSelected)
+        TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
+
+        if (tf.isSelected)
         {
             Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
             selectedPiece.transform.position = newPos;
             PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
             pf.JustMoved();
+
+            if (selectedPiece.tag == "InvaderPiece")
+            {
+                tf.InfectTile();
+            }
 
             UnselectPiece();
         }
@@ -100,7 +108,8 @@ public class GameManager : MonoBehaviour {
 
     private void UnselectPiece()
     {
-        selectedPiece.renderer.material.color = pieceOldColor;
+        PieceFunctions pf = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
+        pf.ResetColor();
         selectedPiece = null;
         UnHighlightMovementOptions();
 
@@ -112,20 +121,33 @@ public class GameManager : MonoBehaviour {
     {
         possibleMovementTiles = tiles;
 
-        foreach (GameObject tile in tiles)
+        foreach (GameObject obj in tiles)
         {
-            tileOldColor = tile.renderer.material.color; //slow and redundant, but fast to write.
-            tile.renderer.material.color = Color.black;
-            ((TileFunctions)tile.GetComponent(typeof(TileFunctions))).isSelected = true;
+            obj.renderer.material.color = Color.black;
+
+            if (obj.tag == "Tile")
+            {
+                ((TileFunctions)obj.GetComponent(typeof(TileFunctions))).isSelected = true;
+            }
         }
     }
 
     private void UnHighlightMovementOptions()
     {
-        foreach (GameObject tile in possibleMovementTiles)
+        foreach (GameObject obj in possibleMovementTiles)
         {
-            tile.renderer.material.color = tileOldColor;
-            ((TileFunctions)tile.GetComponent(typeof(TileFunctions))).isSelected = false;
+            if (obj.tag == "Tile")
+            {
+                TileFunctions tf = (TileFunctions)obj.GetComponent(typeof(TileFunctions));
+                tf.ResetColor();
+                tf.isSelected = false;
+            }
+            else if (obj.tag == "InvaderPiece")
+            {
+                PieceFunctions pf = (PieceFunctions)obj.GetComponent(typeof(PieceFunctions));
+                pf.ResetColor();
+            }
+            
         }
 
         possibleMovementTiles.Clear();
@@ -164,9 +186,24 @@ public class GameManager : MonoBehaviour {
                 {
                     tileList.Add(hitInfo.collider.gameObject);
                 }
+                else if (selectedPiece.tag == "HumanPiece" && hitInfo.collider.gameObject.tag == "InvaderPiece")
+                {
+                    tileList.Add(hitInfo.collider.gameObject);
+                }
             }
         }
 
         return tileList;
+    }
+
+    public void TakePiece(GameObject toTake)
+    {
+        PieceFunctions pf = (PieceFunctions)toTake.GetComponent(typeof(PieceFunctions));
+        GameObject tile = pf.GetTile();
+        TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
+        tf.isSelected = true;
+
+        MovePiece(tile);
+        Destroy(toTake);
     }
 }

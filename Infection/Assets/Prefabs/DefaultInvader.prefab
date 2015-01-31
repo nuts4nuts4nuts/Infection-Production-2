@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11446498}
   m_Layer: 0
   m_Name: DefaultInvader
-  m_TagString: GamePiece
+  m_TagString: InvaderPiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,6 +75,10 @@ MonoBehaviour:
   - {x: 1, y: 0}
   - {x: -1, y: 0}
   ySign: 1
+  cooldown: 1
+  incubateTime: 2
+  isIncubating: 0
+  turnsTillMove: 0
 --- !u!136 &13636970
 CapsuleCollider:
   m_ObjectHideFlags: 1

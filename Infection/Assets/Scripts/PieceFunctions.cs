@@ -22,6 +22,21 @@ public class PieceFunctions : MonoBehaviour {
     private Vector3 lerpTarget;
     private float lerpCounter = 0.0f;
 
+    private Color originalColor;
+
+    void Start()
+    {
+        originalColor = renderer.material.color;
+
+        if (tag == "InvaderPiece")
+        {
+            GameObject tile = GetTile();
+
+            TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
+            tf.InfectTile();
+        }
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -36,6 +51,20 @@ public class PieceFunctions : MonoBehaviour {
                 lerpCounter = 0.0f;
             }
         }
+    }
+
+    public GameObject GetTile()
+    {
+        Vector3 direction = new Vector3(0, 0, 1);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(transform.position, direction, out hitInfo, 1000))
+        {
+            if (hitInfo.collider.gameObject.tag == "Tile")
+            {
+                return hitInfo.collider.gameObject;
+            }
+        }
+        return null;
     }
 
     public void LerpTo(Vector3 pos)
@@ -66,5 +95,10 @@ public class PieceFunctions : MonoBehaviour {
     public void FinishIncubate()
     {
         isIncubating = false;
+    }
+
+    public void ResetColor()
+    {
+        renderer.material.color = originalColor;
     }
 }

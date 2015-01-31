@@ -54,15 +54,19 @@ public class PlayerControl : MonoBehaviour {
                 }
                 else if (hitObj.tag == currentPlayers[currentPlayer] && ((PieceFunctions)hitObj.GetComponent(typeof(PieceFunctions))).turnsTillMove <= 0)
                 {
-                    GameObject selectedPiece = hitInfo.collider.gameObject;
+                    GameObject selectedPiece = hitObj;
                     gameManager.SelectPiece(selectedPiece, playerCam);
                 }
-                else if (hitInfo.collider.gameObject.tag == "Tile")
+                else if (hitObj.tag == "Tile")
                 {
                     if(isPieceSelected)
                     {
-                        gameManager.MovePiece(hitInfo.collider.gameObject);
+                        gameManager.MovePiece(hitObj);
                     }
+                }
+                else if (hitObj.tag == currentPlayers[(currentPlayer + 1) % 2]) //TODO: This does not support more than 2 players
+                {
+                    gameManager.TakePiece(hitObj);
                 }
             }
 
@@ -87,8 +91,9 @@ public class PlayerControl : MonoBehaviour {
                 gameManager.FinishIncubate(piece, playerCam);
             }
         }
-
+#if VIRION_DEBUG
         print("Turn Ended!");
+#endif
     }
 
     public void SelectPiece()
