@@ -16,7 +16,7 @@ public class PlayerControl : MonoBehaviour {
 	void Start()
     {
         gameManager = gameObject.GetComponent<GameManager>();
-        playerCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        playerCam = Camera.main;
         isPieceSelected = false;
 
         //Could be more modular later

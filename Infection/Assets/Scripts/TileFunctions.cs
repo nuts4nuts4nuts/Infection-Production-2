@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TileFunctions : MonoBehaviour
+public class TileFunctions : EntityFunctions
 {
-    [HideInInspector]
-    public bool isSelected = false;
-
     private bool isInfected = false;
-
-    Color originalColor;
-    Color currentColor;
 
 	// Use this for initialization
 	void Start () 
@@ -17,17 +11,6 @@ public class TileFunctions : MonoBehaviour
         originalColor = renderer.material.color;
         currentColor = originalColor;
 	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
-	}
-
-    public void ResetColor()
-    {
-        renderer.material.color = currentColor;
-    }
 
     public void InfectTile()
     {

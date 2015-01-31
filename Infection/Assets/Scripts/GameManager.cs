@@ -71,15 +71,14 @@ public class GameManager : MonoBehaviour {
 
             PieceFunctions newPieceFuncs = ((PieceFunctions)newPiece.GetComponent(typeof(PieceFunctions)));
             Vector3 newPos = new Vector3(tiles[0].transform.position.x, tiles[0].transform.position.y, piece.transform.position.z);
-            newPieceFuncs.LerpTo(newPos);
-            //newPiece.transform.position = newPos;
+            newPieceFuncs.LerpTo(newPos, PieceFunctions.LerpSpeed.med);
         }
+#if VIRION_DEBUG
         else
         {
-#if VIRION_DEBUG
             print("Incubation Blocked!");
-#endif
         }
+#endif
     }
 
     public void MovePiece(GameObject tile) 
@@ -88,15 +87,11 @@ public class GameManager : MonoBehaviour {
 
         if (tf.isSelected)
         {
-            Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
-            selectedPiece.transform.position = newPos;
             PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
-            pf.JustMoved();
+            Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
 
-            if (selectedPiece.tag == "InvaderPiece")
-            {
-                tf.InfectTile();
-            }
+            pf.LerpTo(newPos, PieceFunctions.LerpSpeed.faster);
+            pf.JustMoved();
 
             UnselectPiece();
         }
@@ -108,13 +103,17 @@ public class GameManager : MonoBehaviour {
 
     private void UnselectPiece()
     {
-        PieceFunctions pf = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
-        pf.ResetColor();
-        selectedPiece = null;
-        UnHighlightMovementOptions();
+        if(selectedPiece)
+        {
+            PieceFunctions pf = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
 
-        PlayerControl pc = gameObject.GetComponent<PlayerControl>();
-        pc.UnselectPiece();
+            pf.ResetColor();
+            selectedPiece = null;
+            UnHighlightMovementOptions();
+
+            PlayerControl pc = gameObject.GetComponent<PlayerControl>();
+            pc.UnselectPiece();
+        }
     }
 
     public void HighlightMovementOptions(List<GameObject> tiles)
@@ -125,10 +124,7 @@ public class GameManager : MonoBehaviour {
         {
             obj.renderer.material.color = Color.black;
 
-            if (obj.tag == "Tile")
-            {
-                ((TileFunctions)obj.GetComponent(typeof(TileFunctions))).isSelected = true;
-            }
+            ((EntityFunctions)obj.GetComponent(typeof(EntityFunctions))).isSelected = true;
         }
     }
 
@@ -136,18 +132,9 @@ public class GameManager : MonoBehaviour {
     {
         foreach (GameObject obj in possibleMovementTiles)
         {
-            if (obj.tag == "Tile")
-            {
-                TileFunctions tf = (TileFunctions)obj.GetComponent(typeof(TileFunctions));
-                tf.ResetColor();
-                tf.isSelected = false;
-            }
-            else if (obj.tag == "InvaderPiece")
-            {
-                PieceFunctions pf = (PieceFunctions)obj.GetComponent(typeof(PieceFunctions));
-                pf.ResetColor();
-            }
-            
+            EntityFunctions ef = (EntityFunctions)obj.GetComponent(typeof(EntityFunctions));
+            ef.ResetColor();
+            ef.isSelected = false;
         }
 
         possibleMovementTiles.Clear();
@@ -182,13 +169,23 @@ public class GameManager : MonoBehaviour {
             RaycastHit hitInfo;
             if (Physics.Raycast(playerCam.transform.position, direction, out hitInfo, 1000))
             {
+                PieceFunctions selectedPieceFunctions = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
+                PieceFunctions hitPieceFunctions = (PieceFunctions)hitInfo.collider.gameObject.GetComponent(typeof(PieceFunctions));
+
+                bool nullCheck = selectedPieceFunctions && hitPieceFunctions;
+
                 if (hitInfo.collider.gameObject.tag == "Tile")
                 {
                     tileList.Add(hitInfo.collider.gameObject);
                 }
-                else if (selectedPiece.tag == "HumanPiece" && hitInfo.collider.gameObject.tag == "InvaderPiece")
+                else if (nullCheck)
                 {
-                    tileList.Add(hitInfo.collider.gameObject);
+                    bool teamsRight = selectedPieceFunctions.team == PieceFunctions.Team.human && hitPieceFunctions.team == PieceFunctions.Team.invader;
+
+                    if(teamsRight)
+                    {
+                        tileList.Add(hitInfo.collider.gameObject);
+                    }
                 }
             }
         }
@@ -199,11 +196,18 @@ public class GameManager : MonoBehaviour {
     public void TakePiece(GameObject toTake)
     {
         PieceFunctions pf = (PieceFunctions)toTake.GetComponent(typeof(PieceFunctions));
-        GameObject tile = pf.GetTile();
-        TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
-        tf.isSelected = true;
+        if(pf.isSelected)
+        {
+            GameObject tile = pf.GetTile();
+            TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
+            tf.isSelected = true;
 
-        MovePiece(tile);
-        Destroy(toTake);
+            MovePiece(tile);
+            Destroy(toTake);
+        }
+        else
+        {
+            UnselectPiece();
+        }
     }
 }

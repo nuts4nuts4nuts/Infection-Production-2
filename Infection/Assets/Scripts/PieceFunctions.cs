@@ -2,11 +2,27 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PieceFunctions : MonoBehaviour {
+public class PieceFunctions : EntityFunctions
+{
+    public enum Team
+    {
+        human = 0,
+        invader = 1,
+        team_count = 2
+    }
+
+    public enum LerpSpeed
+    {
+        slow = 1,
+        med = 2,
+        fast = 4,
+        faster = 6,
+        blazin = 8
+    }
 
     //[SerializeField]
     public List<Vector2> movementDirections = new List<Vector2>();
-    public int ySign = 1; //does the piece move up or down when it goes forward?
+    public int ySign = 1; //does the piece move up or down when it goes "forward"?
 
     public int cooldown = 1;
     public int incubateTime = 2;
@@ -20,37 +36,52 @@ public class PieceFunctions : MonoBehaviour {
     private bool isLerping = false;
     private Vector3 lerpStart;
     private Vector3 lerpTarget;
-    private float lerpCounter = 0.0f;
+    private LerpSpeed lerpSpeed = LerpSpeed.med;
 
-    private Color originalColor;
+    public Team team;
 
     void Start()
     {
         originalColor = renderer.material.color;
+        currentColor = originalColor;
 
         if (tag == "InvaderPiece")
         {
-            GameObject tile = GetTile();
+            team = Team.invader;
 
-            TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
-            tf.InfectTile();
+            InfectTile();
+        }
+        else if(tag == "HumanPiece")
+        {
+            team = Team.human;
         }
     }
 
 	// Update is called once per frame
-	void Update ()
+    void Update()
     {
-        if(isLerping)
+        if (isLerping)
         {
-            Vector3.Lerp(lerpStart, lerpTarget, lerpCounter);
-            lerpCounter += Time.deltaTime;
-
-            if(lerpCounter >= 1.0f)
+            //we slerping... or something
+            transform.position = Vector3.Lerp(transform.position, lerpTarget, (float)lerpSpeed * Time.deltaTime);
+            if (Vector3.SqrMagnitude(transform.position - lerpTarget) < 0.001f)
             {
                 isLerping = false;
-                lerpCounter = 0.0f;
+
+                if (team == Team.invader)
+                {
+                    InfectTile();
+                }
             }
         }
+    }
+
+    private void InfectTile()
+    {
+        GameObject tile = GetTile();
+
+        TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
+        tf.InfectTile();
     }
 
     public GameObject GetTile()
@@ -59,7 +90,8 @@ public class PieceFunctions : MonoBehaviour {
         RaycastHit hitInfo;
         if (Physics.Raycast(transform.position, direction, out hitInfo, 1000))
         {
-            if (hitInfo.collider.gameObject.tag == "Tile")
+            TileFunctions tf = (TileFunctions)hitInfo.collider.gameObject.GetComponent(typeof(TileFunctions));
+            if (tf != null)
             {
                 return hitInfo.collider.gameObject;
             }
@@ -67,9 +99,10 @@ public class PieceFunctions : MonoBehaviour {
         return null;
     }
 
-    public void LerpTo(Vector3 pos)
+    public void LerpTo(Vector3 pos, LerpSpeed speed)
     {
         isLerping = true;
+        lerpSpeed = speed;
         lerpTarget = pos;
         lerpStart = transform.position;
     }
@@ -95,10 +128,5 @@ public class PieceFunctions : MonoBehaviour {
     public void FinishIncubate()
     {
         isIncubating = false;
-    }
-
-    public void ResetColor()
-    {
-        renderer.material.color = originalColor;
     }
 }
