@@ -17,10 +17,6 @@ public class GameManager : MonoBehaviour {
         possibleMovementTiles = new List<GameObject>();
 	}
 
-    void Update()
-    {
-    }
-
     public void SelectPiece(GameObject newPiece, Camera playerCam)
     {
         if(newPiece != selectedPiece)
@@ -74,8 +70,10 @@ public class GameManager : MonoBehaviour {
         {
             GameObject newPiece = (GameObject)(Object.Instantiate(piece));
 
-            Vector3
-            PieceFunctions pf = ((PieceFunctions)newPiece.GetComponent(typeof(PieceFunctions))).LerpTo(tiles[0].transform.position)
+            PieceFunctions newPieceFuncs = ((PieceFunctions)newPiece.GetComponent(typeof(PieceFunctions)));
+            Vector3 newPos = new Vector3(tiles[0].transform.position.x, tiles[0].transform.position.y, piece.transform.position.z);
+            newPieceFuncs.LerpTo(newPos);
+            //newPiece.transform.position = newPos;
         }
         else
         {
@@ -85,9 +83,7 @@ public class GameManager : MonoBehaviour {
 
     public void MovePiece(GameObject tile) 
     {
-        selectedPiece.renderer.material.color = pieceOldColor;
-
-        if(((TileFunctions)tile.GetComponent(typeof(TileFunctions))).isSelected)
+        if (((TileFunctions)tile.GetComponent(typeof(TileFunctions))).isSelected)
         {
             Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
             selectedPiece.transform.position = newPos;
@@ -96,12 +92,15 @@ public class GameManager : MonoBehaviour {
 
             UnselectPiece();
         }
-
-        UnselectPiece();
+        else
+        {
+            UnselectPiece();
+        }
     }
 
     private void UnselectPiece()
     {
+        selectedPiece.renderer.material.color = pieceOldColor;
         selectedPiece = null;
         UnHighlightMovementOptions();
 
