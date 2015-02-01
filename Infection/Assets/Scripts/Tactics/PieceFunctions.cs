@@ -34,7 +34,6 @@ public class PieceFunctions : EntityFunctions
     public int turnsTillMove = 0;
 
     private bool isLerping = false;
-    private Vector3 lerpStart;
     private Vector3 lerpTarget;
     private LerpSpeed lerpSpeed = LerpSpeed.med;
 
@@ -109,7 +108,6 @@ public class PieceFunctions : EntityFunctions
         isLerping = true;
         lerpSpeed = speed;
         lerpTarget = pos;
-        lerpStart = transform.position;
     }
 
     public void JustMoved()

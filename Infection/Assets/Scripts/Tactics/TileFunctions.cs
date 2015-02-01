@@ -5,6 +5,9 @@ public class TileFunctions : EntityFunctions
 {
     private bool isInfected = false;
 
+    public bool humanSpawn = false;
+    public bool invaderSpawn = false;
+
 	// Use this for initialization
 	void Start () 
     {
