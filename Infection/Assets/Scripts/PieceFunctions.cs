@@ -38,7 +38,10 @@ public class PieceFunctions : EntityFunctions
     private Vector3 lerpTarget;
     private LerpSpeed lerpSpeed = LerpSpeed.med;
 
+    [HideInInspector]
     public Team team;
+
+    private ParticleSystem pSystem;
 
     void Start()
     {
@@ -55,6 +58,8 @@ public class PieceFunctions : EntityFunctions
         {
             team = Team.human;
         }
+
+        pSystem = (ParticleSystem)gameObject.GetComponent(typeof(ParticleSystem));
     }
 
 	// Update is called once per frame
@@ -110,17 +115,25 @@ public class PieceFunctions : EntityFunctions
     public void JustMoved()
     {
         turnsTillMove = cooldown;
+
+        pSystem.enableEmission = false;
     }
 
     public void StartIncubate()
     {
         turnsTillMove = incubateTime;
+        pSystem.enableEmission = false;
         isIncubating = true;
     }
 
     public int TurnPassed()
     {
         turnsTillMove--;
+
+        if(turnsTillMove <= 0)
+        {
+            pSystem.enableEmission = true;
+        }
 
         return turnsTillMove;
     }

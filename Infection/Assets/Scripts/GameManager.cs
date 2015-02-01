@@ -146,10 +146,13 @@ public class GameManager : MonoBehaviour {
         Vector3 piecePos = selectedPiece.transform.position;
 
         List<Vector2> pieceDirections;
+        int ySign = 1;
 
         if(directions == null)
         {
-            pieceDirections = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions))).movementDirections; //really ugly, but I don't need to use it again
+            PieceFunctions pf = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
+            pieceDirections = pf.movementDirections;
+            ySign = pf.ySign;
         }
         else
         {
@@ -162,7 +165,7 @@ public class GameManager : MonoBehaviour {
         {
             Vector3 newPos = piecePos;
             newPos.x += movement.x * tileSize;
-            newPos.y += movement.y * tileSize;
+            newPos.y += movement.y * ySign * tileSize;
 
             Vector3 direction = newPos - playerCam.transform.position;
 

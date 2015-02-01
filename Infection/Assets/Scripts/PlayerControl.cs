@@ -50,7 +50,8 @@ public class PlayerControl : MonoBehaviour {
                 
                 if(hitObj.tag == "EndTurn")
                 {
-                    EndTurn();
+                    EndFunctions ef = (EndFunctions)hitObj.GetComponent(typeof(EndFunctions));
+                    EndTurn(ef);
                 }
                 else if (hitObj.tag == currentPlayers[currentPlayer] && ((PieceFunctions)hitObj.GetComponent(typeof(PieceFunctions))).turnsTillMove <= 0)
                 {
@@ -73,10 +74,19 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
-    private void EndTurn()
+    private void EndTurn(EndFunctions endFunctions)
     {
         //Go to next player
         currentPlayer = (currentPlayer + 1) % currentPlayerCount;
+
+        if (currentPlayer == 0)
+        {
+            endFunctions.SetColor(Color.blue);
+        }
+        else if (currentPlayer == 1)
+        {
+            endFunctions.SetColor(Color.red);
+        }
 
         //Reactivate new player's pieces
         GameObject[] pieces = GameObject.FindGameObjectsWithTag(currentPlayers[currentPlayer]);
