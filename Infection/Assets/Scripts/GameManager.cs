@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
             PlayerControl pc = gameObject.GetComponent<PlayerControl>();
             pc.SelectPiece();
         }
-        else
+        else if( ((PieceFunctions)newPiece.GetComponent(typeof(PieceFunctions))).team == PieceFunctions.Team.invader)
         {
             StartIncubate();
         }
