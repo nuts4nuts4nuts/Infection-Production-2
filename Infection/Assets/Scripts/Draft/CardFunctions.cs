@@ -3,9 +3,24 @@ using System.Collections;
 
 public class CardFunctions : MonoBehaviour
 {
+
+    public enum Team
+    {
+        human = 0,
+        invader,
+        teamCount
+    }
+
+    public string associatedPiece = "";
+
     private bool isLerping = false;
     private Vector3 lerpTarget;
     private float lerpSpeed = 10.0f;
+
+    public Team team;
+
+    [HideInInspector]
+    public bool isDrafted = false;
 	
 	// Update is called once per frame
 	void Update ()
@@ -25,5 +40,11 @@ public class CardFunctions : MonoBehaviour
     {
         isLerping = true;
         lerpTarget = pos;
+    }
+
+    public void DraftCard()
+    {
+        isDrafted = true;
+        renderer.material.color = Color.green; 
     }
 }

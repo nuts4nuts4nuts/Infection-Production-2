@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Draft\CardFunctions.cs" />
+     <Compile Include="Assets\Scripts\Draft\DraftData.cs" />
      <Compile Include="Assets\Scripts\Draft\DraftManager.cs" />
      <Compile Include="Assets\Scripts\Tactics\EndFunctions.cs" />
      <Compile Include="Assets\Scripts\Tactics\EntityFunctions.cs" />

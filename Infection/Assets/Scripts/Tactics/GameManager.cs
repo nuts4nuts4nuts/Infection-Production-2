@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     private GameObject selectedPiece;
     private List<GameObject> possibleMovementTiles;
 
-    private List<GameObject> originalPieces;
+    private DraftData data;
 
 	// Use this for initialization
 	void Start ()
@@ -18,34 +18,55 @@ public class GameManager : MonoBehaviour {
         print("hello world!");
 #endif
         possibleMovementTiles = new List<GameObject>();
-        originalPieces = new List<GameObject>();
 
-        LoadOriginalPieces();
+        GameObject dataHolder = GameObject.Find("DraftDataHolder");
+
+#if VIRION_DEBUG
+        if(dataHolder == null)
+        {
+            print("something has gone horribly wrong!");
+        }
+        else
+#endif
+        {
+            data = (DraftData)dataHolder.GetComponent(typeof(DraftData));
+            LoadOriginalPieces();
+        }
 	}
 
     private void LoadOriginalPieces()
     {
-        GameObject humanPiece2 = (GameObject)Instantiate(Resources.Load("Prefabs/Humans/DefaultHuman"));
-        GameObject humanPiece = (GameObject)Instantiate(Resources.Load("Prefabs/Humans/HumanHorse"));
-        GameObject humanPiece3 = (GameObject)Instantiate(Resources.Load("Prefabs/Humans/HumanBishop"));
+        int counter = 0;
+        string pieceString = "Prefabs/Humans/" + data.humanPieces[counter];
+        LoadPiece(pieceString, new Vector3(-0.32355530f, -3.61685f, -1));
+        pieceString = "Prefabs/Invaders/" + data.invaderPieces[counter];
+        LoadPiece(pieceString, new Vector3(-0.32355530f, 4.38315f, -1));
 
-        humanPiece.transform.position = new Vector3(-0.32355530f, -3.61685f, -1);
-        humanPiece2.transform.position = new Vector3(0.6764446f, -3.61685f, -1);
-        humanPiece3.transform.position = new Vector3(1.6764446f, -3.61685f, -1);
+        counter++;
+        pieceString = "Prefabs/Humans/" + data.humanPieces[counter];
+        LoadPiece(pieceString, new Vector3(0.6764446f, -3.61685f, -1));
+        pieceString = "Prefabs/Invaders/" + data.invaderPieces[counter];
+        LoadPiece(pieceString, new Vector3(0.6764446f, 4.38315f, -1));
 
-        GameObject invaderPiece = (GameObject)Instantiate(Resources.Load("Prefabs/Invaders/InvaderKing"));
-        GameObject invaderPiece2 = (GameObject)Instantiate(Resources.Load("Prefabs/Invaders/DefaultInvader"));
-        GameObject invaderPiece3 = (GameObject)Instantiate(Resources.Load("Prefabs/Invaders/InvaderAggroKnight"));
+        //counter++;
+        //pieceString = "Prefabs/Humans/" + data.humanPieces[counter];
+        LoadPiece("Prefabs/Humans/DefaultHuman", new Vector3(1.6764446f, -3.61685f, -1));
+        //pieceString = "Prefabs/Invaders/" + data.invaderPieces[counter];
+        LoadPiece("Prefabs/Invaders/DefaultInvader", new Vector3(1.6764446f, 4.38315f, -1));
+    }
 
-        invaderPiece.transform.position = new Vector3(-0.32355530f, 4.38315f, -1);
-        invaderPiece2.transform.position = new Vector3(0.6764446f, 4.38315f, -1);
-        invaderPiece3.transform.position = new Vector3(1.6764446f, 4.38315f, -1);
+    private void LoadPiece(string pieceLocation, Vector3 piecePosition)
+    {
+        GameObject piece = (GameObject)Instantiate(Resources.Load(pieceLocation));
+        piece.transform.position = piecePosition;
     }
 
     public void SelectPiece(GameObject newPiece, Camera playerCam)
     {
         if(newPiece != selectedPiece)
         {
+            UnselectPiece();
+
             selectedPiece = newPiece;
 
             //Highlight that joint!

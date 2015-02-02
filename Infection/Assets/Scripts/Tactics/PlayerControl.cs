@@ -94,12 +94,23 @@ public class PlayerControl : MonoBehaviour {
         foreach(GameObject piece in pieces)
         {
             PieceFunctions pf = ((PieceFunctions)piece.GetComponent(typeof(PieceFunctions)));
-            int turnsTillMove = pf.TurnPassed();
 
-            if(turnsTillMove <= 0 && pf.isIncubating)
+#if VIRION_DEBUG
+            if(pf == null)
             {
-                gameManager.FinishIncubate(piece, playerCam);
+                print("unity is dumb");
             }
+            else
+#endif
+            {
+                int turnsTillMove = pf.TurnPassed();
+
+                if (turnsTillMove <= 0 && pf.isIncubating)
+                {
+                    gameManager.FinishIncubate(piece, playerCam);
+                }
+            }
+
         }
 #if VIRION_DEBUG
         print("Turn Ended!");
