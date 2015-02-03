@@ -186,7 +186,7 @@ MonoBehaviour:
   - {x: -4, y: 4}
   - {x: -5, y: 5}
   ySign: 1
-  cooldown: 1
+  cooldown: 2
   incubateTime: 2
   isIncubating: 0
   turnsTillMove: 0
