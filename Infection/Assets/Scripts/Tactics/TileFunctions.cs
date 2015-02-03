@@ -8,17 +8,25 @@ public class TileFunctions : EntityFunctions
     public bool humanSpawn = false;
     public bool invaderSpawn = false;
 
+    GameObject gameManager;
+    GameManager managerFunctions;
+
 	// Use this for initialization
 	void Start () 
     {
         originalColor = renderer.material.color;
         currentColor = originalColor;
+        gameManager = GameObject.Find("GameManager");
+        managerFunctions = (GameManager)gameManager.GetComponent(typeof(GameManager));
+
+        managerFunctions.numCleanTiles++;
 	}
 
     public void InfectTile()
     {
         isInfected = true;
         currentColor = Color.red;
+        managerFunctions.numCleanTiles--;
         ResetColor();
     }
 
@@ -26,6 +34,7 @@ public class TileFunctions : EntityFunctions
     {
         isInfected = false;
         currentColor = originalColor;
+        managerFunctions.numCleanTiles++;
         ResetColor();
     }
 }

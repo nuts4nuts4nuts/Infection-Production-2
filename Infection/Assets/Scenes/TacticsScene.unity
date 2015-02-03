@@ -1158,6 +1158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5270c819d1acb8444a4c3269827d5996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numCleanTiles: 0
+  infectedTileThreshold: 12
 --- !u!4 &313154846
 Transform:
   m_ObjectHideFlags: 0
@@ -3497,7 +3499,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 988772541}
-  m_LocalRotation: {x: -.00299629825, y: -.51376915, z: .00179434335, w: .857921422}
+  m_LocalRotation: {x: -.0011168255, y: .165383682, z: .00330910669, w: .986223161}
   m_LocalPosition: {x: 9.59000015, y: .670000017, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

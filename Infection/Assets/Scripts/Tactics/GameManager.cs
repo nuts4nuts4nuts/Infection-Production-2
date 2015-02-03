@@ -6,6 +6,10 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
+    //Should probably be more compartmentalized
+    public int numCleanTiles = 0;
+    public int infectedTileThreshold = 12;
+
     private GameObject selectedPiece;
     private List<GameObject> possibleMovementTiles;
 
@@ -144,6 +148,18 @@ public class GameManager : MonoBehaviour {
         {
             UnselectPiece();
         }
+
+        TestInfectionLevel();
+    }
+
+    private void TestInfectionLevel()
+    {
+#if VIRION_DEBUG
+        if(numCleanTiles <= infectedTileThreshold)
+        {
+            print("INVADERS WIN!");
+        }
+#endif
     }
 
     private void UnselectPiece()
@@ -252,10 +268,26 @@ public class GameManager : MonoBehaviour {
 
             MovePiece(tile);
             Destroy(toTake);
+
+            //TODO: Should not be hardcoded
+            GameObject[] pieces = GetPlayerPieces("InvaderPiece");
+
+            if(pieces.Length <= 1)
+            {
+#if VIRION_DEBUG
+                print("HUMANS WIN!");
+#endif
+            }
         }
         else
         {
             UnselectPiece();
         }
+    }
+
+    public GameObject[] GetPlayerPieces(string playerName)
+    {
+        GameObject[] pieces = GameObject.FindGameObjectsWithTag(playerName);
+        return pieces;
     }
 }

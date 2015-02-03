@@ -89,7 +89,7 @@ public class PlayerControl : MonoBehaviour {
         }
 
         //Reactivate new player's pieces
-        GameObject[] pieces = GameObject.FindGameObjectsWithTag(currentPlayers[currentPlayer]);
+        GameObject[] pieces = gameManager.GetPlayerPieces(currentPlayers[currentPlayer]);
 
         foreach(GameObject piece in pieces)
         {
