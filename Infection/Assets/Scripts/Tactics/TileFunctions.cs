@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TileFunctions : EntityFunctions
+public class TileFunctions : Lerpable
 {
     private bool isInfected = false;
 
@@ -12,7 +12,7 @@ public class TileFunctions : EntityFunctions
     GameManager managerFunctions;
 
 	// Use this for initialization
-	void Start () 
+	protected void Start () 
     {
         originalColor = renderer.material.color;
         currentColor = originalColor;

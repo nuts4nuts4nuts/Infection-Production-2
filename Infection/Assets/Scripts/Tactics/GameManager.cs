@@ -6,63 +6,157 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
-    //Should probably be more compartmentalized
+    public enum GameState
+    {
+        draft = 0,
+        tactics
+    }
+    public GameState currentState = GameState.draft;
+
     public int numCleanTiles = 0;
     public int infectedTileThreshold = 12;
 
     private GameObject selectedPiece;
     private List<GameObject> possibleMovementTiles;
 
-    private DraftData data;
+    private int currentPlayerIndex = 0;
+    private string[] currentPlayers;
+    private int numPlayers = 2;
+
+    //Draft data
+    private GameObject selectedCard;
+    private CardFunctions selectedCardFunc;
 
 	// Use this for initialization
 	void Start ()
     {
-#if VIRION_DEBUG
-        print("hello world!");
-#endif
         possibleMovementTiles = new List<GameObject>();
 
-        GameObject dataHolder = GameObject.Find("DraftDataHolder");
+        currentPlayers = new string[numPlayers];
+        currentPlayers[0] = "HumanPiece";
+        currentPlayers[1] = "InvaderPiece";
 
-#if VIRION_DEBUG
-        if(dataHolder == null)
-        {
-            print("something has gone horribly wrong!");
-        }
-        else
-#endif
-        {
-            data = (DraftData)dataHolder.GetComponent(typeof(DraftData));
-            LoadOriginalPieces();
-        }
+        EnterDraftMode();
 	}
 
-    private void LoadOriginalPieces()
+    public void EnterDraftMode()
     {
-        int counter = 0;
-        string pieceString = "Prefabs/Humans/" + data.humanPieces[counter];
-        LoadPiece(pieceString, new Vector3(-0.32355530f, -3.61685f, -1));
-        pieceString = "Prefabs/Invaders/" + data.invaderPieces[counter];
-        LoadPiece(pieceString, new Vector3(-0.32355530f, 4.38315f, -1));
+        currentState = GameState.draft;
 
-        counter++;
-        pieceString = "Prefabs/Humans/" + data.humanPieces[counter];
-        LoadPiece(pieceString, new Vector3(0.6764446f, -3.61685f, -1));
-        pieceString = "Prefabs/Invaders/" + data.invaderPieces[counter];
-        LoadPiece(pieceString, new Vector3(0.6764446f, 4.38315f, -1));
+        GameObject endTurn = GameObject.Find("EndTurn");
+        endTurn.SetActive(false);
+    }
 
-        //counter++;
-        //pieceString = "Prefabs/Humans/" + data.humanPieces[counter];
-        LoadPiece("Prefabs/Humans/DefaultHuman", new Vector3(1.6764446f, -3.61685f, -1));
-        //pieceString = "Prefabs/Invaders/" + data.invaderPieces[counter];
-        LoadPiece("Prefabs/Invaders/DefaultInvader", new Vector3(1.6764446f, 4.38315f, -1));
+    public void EnterTacticsMode()
+    {
+        currentState = GameState.tactics;
+
+        GameObject endTurn = GameObject.Find("EndTurn");
+        endTurn.SetActive(true);
     }
 
     private void LoadPiece(string pieceLocation, Vector3 piecePosition)
     {
         GameObject piece = (GameObject)Instantiate(Resources.Load(pieceLocation));
         piece.transform.position = piecePosition;
+    }
+
+    public void HandleEndTurn(EndFunctions ef, Camera cam)
+    { 
+        //Go to next player
+        currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
+
+        if (currentPlayerIndex == 0)
+        {
+            ef.SetColor(Color.blue);
+        }
+        else if (currentPlayerIndex == 1)
+        {
+            ef.SetColor(Color.red);
+        }
+
+        //Reactivate new player's pieces
+        GameObject[] pieces = GetPlayerPieces(currentPlayers[currentPlayerIndex]);
+
+        foreach(GameObject piece in pieces)
+        {
+            PieceFunctions pf = ((PieceFunctions)piece.GetComponent(typeof(PieceFunctions)));
+
+#if VIRION_DEBUG
+            if(pf == null)
+            {
+                print("unity is dumb");
+            }
+            else
+#endif
+            {
+                int turnsTillMove = pf.TurnPassed();
+
+                if (turnsTillMove <= 0 && pf.isIncubating)
+                {
+                    FinishIncubate(piece, cam);
+                }
+            }
+
+        }
+#if VIRION_DEBUG
+        print("Turn Ended!");
+#endif
+    }
+
+    public void HandleSelectPiece(GameObject piece, PieceFunctions pf, Camera cam)
+    {
+        if (piece.tag == currentPlayers[currentPlayerIndex] && pf.turnsTillMove <= 0)
+        {
+            SelectPiece(piece, cam);
+        }
+
+        if(piece.tag != currentPlayers[currentPlayerIndex])
+        {
+            TakePiece(piece);
+        }
+    }
+
+    public void HandleSelectTile(GameObject tile)
+    {
+        if(selectedPiece)
+        {
+            MovePiece(tile);
+        }
+    }
+
+    public void HandleSelectCard(GameObject card, CardFunctions cf)
+    {
+        if(selectedCard != card && !cf.isDrafted)
+        {
+            ShowCard(card, cf);
+        }
+    }
+
+    public void HandleHitNothing()
+    {
+        UnselectPiece();
+        ResetSelectedCard();
+    }
+
+    private void ShowCard(GameObject card, CardFunctions cf)
+    {
+        ResetSelectedCard();
+
+        selectedCard = card;
+        selectedCardFunc = cf;
+
+        selectedCardFunc.LerpTo(new Vector3(0,0,-5f));
+    }
+
+    private void ResetSelectedCard()
+    {
+        if (selectedCardFunc)
+        {
+            selectedCardFunc.LerpToOriginalPos();
+            selectedCardFunc = null;
+            selectedCard = null;
+        }
     }
 
     public void SelectPiece(GameObject newPiece, Camera playerCam)
@@ -76,9 +170,6 @@ public class GameManager : MonoBehaviour {
             //Highlight that joint!
             selectedPiece.renderer.material.color = Color.magenta;
             HighlightMovementOptions(GeneratePossibleMoves(selectedPiece, playerCam));
-
-            PlayerControl pc = gameObject.GetComponent<PlayerControl>();
-            pc.SelectPiece();
         }
         else if( ((PieceFunctions)newPiece.GetComponent(typeof(PieceFunctions))).team == PieceFunctions.Team.invader)
         {
@@ -171,9 +262,6 @@ public class GameManager : MonoBehaviour {
             pf.ResetColor();
             selectedPiece = null;
             UnHighlightMovementOptions();
-
-            PlayerControl pc = gameObject.GetComponent<PlayerControl>();
-            pc.UnselectPiece();
         }
     }
 
@@ -185,7 +273,7 @@ public class GameManager : MonoBehaviour {
         {
             obj.renderer.material.color = Color.black;
 
-            ((EntityFunctions)obj.GetComponent(typeof(EntityFunctions))).isSelected = true;
+            ((Lerpable)obj.GetComponent(typeof(Lerpable))).isSelected = true;
         }
     }
 
@@ -193,7 +281,7 @@ public class GameManager : MonoBehaviour {
     {
         foreach (GameObject obj in possibleMovementTiles)
         {
-            EntityFunctions ef = (EntityFunctions)obj.GetComponent(typeof(EntityFunctions));
+            Lerpable ef = (Lerpable)obj.GetComponent(typeof(Lerpable));
             ef.ResetColor();
             ef.isSelected = false;
         }

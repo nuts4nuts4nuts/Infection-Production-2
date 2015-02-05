@@ -6,6 +6,7 @@ public class DraftData : MonoBehaviour
 {
     [HideInInspector]
     public List<string> humanPieces;
+    [HideInInspector]
     public List<string> invaderPieces;
 
     [HideInInspector]

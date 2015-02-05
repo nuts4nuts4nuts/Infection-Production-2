@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PieceFunctions : EntityFunctions
+public class PieceFunctions : Lerpable
 {
     public enum Team
     {
@@ -33,10 +33,6 @@ public class PieceFunctions : EntityFunctions
     [HideInInspector]
     public int turnsTillMove = 0;
 
-    private bool isLerping = false;
-    private Vector3 lerpTarget;
-    private LerpSpeed lerpSpeed = LerpSpeed.med;
-
     [HideInInspector]
     public Team team;
 
@@ -62,12 +58,12 @@ public class PieceFunctions : EntityFunctions
     }
 
 	// Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if (isLerping)
         {
             //we slerping... or something
-            transform.position = Vector3.Lerp(transform.position, lerpTarget, (float)lerpSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, lerpTarget, lerpSpeed * Time.deltaTime);
             if (Vector3.SqrMagnitude(transform.position - lerpTarget) < 0.001f)
             {
                 isLerping = false;
@@ -106,7 +102,7 @@ public class PieceFunctions : EntityFunctions
     public void LerpTo(Vector3 pos, LerpSpeed speed)
     {
         isLerping = true;
-        lerpSpeed = speed;
+        lerpSpeed = (float)speed;
         lerpTarget = pos;
     }
 
