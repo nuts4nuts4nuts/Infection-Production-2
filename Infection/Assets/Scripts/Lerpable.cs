@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class Lerpable : MonoBehaviour {
 
     public Vector3 originalPosition;
+    public Vector3 secondaryPosition;
 
     protected Vector3 lerpTarget;
     protected bool isLerping = false;
     protected float lerpSpeed = 10.0f;
-
 
     [HideInInspector]
     public bool isSelected = false;
 
     protected Color originalColor;
     protected Color currentColor;
+
+    private Action<Vector3> doneLerpingDelegate;
+    private Vector3 doneLerpingData;
 
     protected virtual void Awake()
     {
@@ -31,6 +35,7 @@ public class Lerpable : MonoBehaviour {
             if (Vector3.SqrMagnitude(transform.position - lerpTarget) < 0.0001f)
             {
                 isLerping = false;
+                FinishedLerping();
             }
         }
 	}
@@ -46,10 +51,38 @@ public class Lerpable : MonoBehaviour {
         }
     }
 
+    public void ExecWhenFinishedLerp(Action<Vector3> delegateFunc, Vector3 delegateData)
+    {
+        doneLerpingDelegate = delegateFunc;
+        doneLerpingData = delegateData;
+    }
+
+    private void FinishedLerping()
+    {
+        if(doneLerpingDelegate != null)
+        {
+            doneLerpingDelegate(doneLerpingData);
+
+            doneLerpingData = Vector3.zero;
+            doneLerpingDelegate = null;
+        }
+    }
+
     public virtual void LerpToOriginalPos(float speed = -1)
     {
         isLerping = true;
         lerpTarget = originalPosition;
+        
+        if(speed > 0)
+        {
+            lerpSpeed = speed;
+        }
+    }
+
+    public virtual void LerpToSecondaryPos(float speed = -1)
+    {
+        isLerping = true;
+        lerpTarget = secondaryPosition;
         
         if(speed > 0)
         {

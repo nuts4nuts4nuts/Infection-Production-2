@@ -9,6 +9,7 @@ public class CardHolder : Lerpable
     void Start()
     {
         LoadCards();
+        secondaryPosition = new Vector3(0, 10, 0);
     }
 
     private void LoadCards()
@@ -25,6 +26,7 @@ public class CardHolder : Lerpable
             }
 
             cards[i] = (GameObject)GameObject.Instantiate((Object)cards[i]);
+            cards[i].transform.parent = gameObject.transform;
             CardFunctions cf = (CardFunctions)cards[i].GetComponent(typeof(CardFunctions));
             Vector3 pos = gameObject.transform.position;
 

@@ -38,11 +38,16 @@ public class PieceFunctions : Lerpable
 
     private ParticleSystem pSystem;
 
-    void Start()
+
+    protected override void Awake()
     {
+        base.Awake();
         originalColor = renderer.material.color;
         currentColor = originalColor;
+    }
 
+    void Start()
+    {
         if (tag == "InvaderPiece")
         {
             team = Team.invader;

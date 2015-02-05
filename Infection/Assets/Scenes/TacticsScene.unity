@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 1
@@ -537,6 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -674,6 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -763,6 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -900,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -951,6 +956,76 @@ Prefab:
   m_RootGameObject: {fileID: 1906983998}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &289689174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 289689178}
+  - 33: {fileID: 289689177}
+  - 64: {fileID: 289689176}
+  - 23: {fileID: 289689175}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &289689175
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289689174}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: a08c086dfb40a9b488be661c0d784d37, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &289689176
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289689174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &289689177
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289689174}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &289689178
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289689174}
+  m_LocalRotation: {x: -3.09086232e-08, y: .707106829, z: -.707106829, w: -3.09086232e-08}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1.75, y: 1, z: 2.3499999}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1001 &299299619
 Prefab:
   m_ObjectHideFlags: 0
@@ -1187,6 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -1276,6 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 1
   invaderSpawn: 0
@@ -1365,6 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -1514,6 +1592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -1603,6 +1682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -1740,6 +1820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -1771,12 +1852,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   cards:
   - {fileID: 155926, guid: 86fb466e42c17a741887e48050a54525, type: 2}
   - {fileID: 149982, guid: bef87f089bfd0e34192d1e0291468469, type: 2}
   - {fileID: 101806, guid: 244a1204c04fdc94da2ea0d9ff067af4, type: 2}
-  - {fileID: 101806, guid: 244a1204c04fdc94da2ea0d9ff067af4, type: 2}
+  - {fileID: 199344, guid: 745e5ec394da5dd4daf0955eae202dbb, type: 2}
   - {fileID: 101806, guid: 244a1204c04fdc94da2ea0d9ff067af4, type: 2}
 --- !u!4 &538617287
 Transform:
@@ -1953,6 +2035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 1
@@ -2042,6 +2125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -2287,6 +2371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 1
   invaderSpawn: 0
@@ -2376,6 +2461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -2465,6 +2551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -2630,6 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -2767,6 +2855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 1
   invaderSpawn: 0
@@ -2856,6 +2945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -2945,6 +3035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -3082,6 +3173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 1
   invaderSpawn: 0
@@ -3267,6 +3359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 1
   invaderSpawn: 0
@@ -3419,6 +3512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -3556,6 +3650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -3645,6 +3740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -3782,6 +3878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -4223,6 +4320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -4360,6 +4458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -4449,6 +4548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -4790,6 +4890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -4879,6 +4980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -4968,6 +5070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -4979,6 +5082,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1422706452}
+  - 114: {fileID: 1422706453}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -5049,6 +5153,20 @@ Transform:
   - {fileID: 1834655330}
   m_Father: {fileID: 544502956}
   m_RootOrder: 0
+--- !u!114 &1422706453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1422706451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb719a29c3fe904e8359b0e64955b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 3, y: .00999999978, z: 6}
+  isSelected: 0
 --- !u!1001 &1448032148
 Prefab:
   m_ObjectHideFlags: 0
@@ -5279,6 +5397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -5600,6 +5719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -5689,6 +5809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 1
@@ -5874,6 +5995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -5963,6 +6085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6052,6 +6175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6141,6 +6265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6230,6 +6355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6319,6 +6445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6408,6 +6535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6497,6 +6625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6586,6 +6715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6675,6 +6805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -6908,6 +7039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -7101,6 +7233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -7190,6 +7323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0
@@ -7279,6 +7413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 1
@@ -7420,6 +7555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 1
@@ -7604,6 +7740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   humanSpawn: 0
   invaderSpawn: 0

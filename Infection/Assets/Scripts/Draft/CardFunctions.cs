@@ -3,7 +3,6 @@ using System.Collections;
 
 public class CardFunctions : Lerpable
 {
-
     public enum Team
     {
         human = 0,
@@ -17,6 +16,11 @@ public class CardFunctions : Lerpable
 
     [HideInInspector]
     public bool isDrafted = false;
+
+    void Start()
+    {
+        secondaryPosition = new Vector3(-1.5f, 0, -4f);
+    }
 
     public void DraftCard()
     {

@@ -1,4 +1,4 @@
-﻿#define VIRION_DEBUG
+#define VIRION_DEBUG
 
 using UnityEngine;
 using System.Collections;
@@ -62,13 +62,13 @@ public class GameManager : MonoBehaviour {
         endTurn.SetActive(true);
     }
 
-    private PieceFunctions LoadPiece(string pieceName, Vector3 pos)
+    private PieceFunctions LoadPiece(string pieceName, Vector3 piecePosition)
     {
         string name = "Prefabs/";
         name += pieceName;
         GameObject piece = (GameObject)Instantiate(Resources.Load(name));
         piece.transform.parent = board.gameObject.transform;
-        piece.transform.position = pos;
+        piece.transform.position = piecePosition;
         PieceFunctions pf = (PieceFunctions)piece.GetComponent(typeof(PieceFunctions));
 
         return pf;
@@ -132,24 +132,10 @@ public class GameManager : MonoBehaviour {
 
     public void HandleSelectTile(GameObject tile)
     {
-        if(currentState == GameState.tactics)
+        if(selectedPiece)
         {
-            if (selectedPiece)
-            {
-                MovePiece(tile);
-            }
+            MovePiece(tile);
         }
-        else
-        {
-            DraftMovePiece(tile);
-        }
-    }
-
-    private void PlacePiece(Vector3 pos)
-    {
-        Vector3 newPos = new Vector3(pos.x, pos.y, pos.z - 1);
-        PieceFunctions pf = LoadPiece(selectedCardFunc.associatedPiece, newPos);
-        SelectPiece(pf.gameObject, Camera.main);
     }
 
     public void HandleSelectCard(GameObject card, CardFunctions cf)
@@ -162,7 +148,6 @@ public class GameManager : MonoBehaviour {
 
     public void HandleHitNothing()
     {
-        Destroy(selectedPiece);
         UnselectPiece();
         ResetSelectedCard();
     }
@@ -178,7 +163,9 @@ public class GameManager : MonoBehaviour {
         selectedCardFunc.LerpToSecondaryPos();
 
         board.LerpToSecondaryPos();
-        board.ExecWhenFinishedLerp(PlacePiece, board.secondaryPosition);
+        //loading piece
+        PieceFunctions pf = LoadPiece(selectedCardFunc.associatedPiece, new Vector3(0,0,1.7f));
+        SelectPiece(pf.gameObject, Camera.main);
     }
 
     private void ResetSelectedCard()
@@ -276,16 +263,6 @@ public class GameManager : MonoBehaviour {
         }
 
         TestInfectionLevel();
-    }
-    
-    public void DraftMovePiece(GameObject tile)
-    {
-        PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
-        Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
-
-        pf.transform.position = newPos;
-        UnselectPiece();
-        SelectPiece(pf.gameObject, Camera.main);
     }
 
     private void TestInfectionLevel()
