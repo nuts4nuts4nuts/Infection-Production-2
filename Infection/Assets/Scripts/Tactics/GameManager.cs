@@ -1,6 +1,7 @@
 ﻿#define VIRION_DEBUG
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour {
     public int numCleanTiles = 0;
     public int infectedTileThreshold = 12;
 
+    //reference to UIManager script on GameManager
+    private UIManager uiManager;
+
     private GameObject selectedPiece;
     private List<GameObject> possibleMovementTiles;
 
@@ -29,7 +33,7 @@ public class GameManager : MonoBehaviour {
 
     private CardHolder humanCardHolder;
     private CardHolder invaderCardHolder;
-    private Lerpable board;
+    private Lerpable board; 
 
 	// Use this for initialization
 	void Start ()
@@ -42,6 +46,9 @@ public class GameManager : MonoBehaviour {
         currentPlayers = new string[numPlayers];
         currentPlayers[0] = "HumanPiece";
         currentPlayers[1] = "InvaderPiece";
+
+        uiManager = FindObjectOfType<GameManager>().GetComponent<UIManager>();
+        uiManager.Init();
 
         EnterDraftMode();
 	}
@@ -98,7 +105,7 @@ public class GameManager : MonoBehaviour {
 #if VIRION_DEBUG
             if(pf == null)
             {
-                print("unity is dumb");
+                print("unity is dumb"); //sure is
             }
             else
 #endif
