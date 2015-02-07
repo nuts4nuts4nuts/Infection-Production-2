@@ -162,12 +162,13 @@ public class GameManager : MonoBehaviour {
     public void HandleSelectCard(GameObject card, CardFunctions cf)
     {
         if(selectedCard != card && !cf.isDrafted)
-        {
+        { 
+            uiManager.EnableDraftUi();
             ShowCard(card, cf);
         }
     }
 
-    public void HandleHitNothing()
+    public void HandleHitNothing() //now called by cancelButton.onClick()
     {
         Destroy(selectedPiece);
         UnselectPiece();
@@ -192,6 +193,7 @@ public class GameManager : MonoBehaviour {
     {
         if (selectedCardFunc)
         {
+            uiManager.DisableDraftUi();
             humanCardHolder.LerpToOriginalPos();
             selectedCardFunc.LerpToOriginalPos();
             board.LerpToOriginalPos();

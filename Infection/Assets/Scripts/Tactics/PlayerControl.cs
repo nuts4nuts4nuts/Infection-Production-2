@@ -57,7 +57,7 @@ public class PlayerControl : MonoBehaviour {
             }
             else
             {
-                gameManager.HandleHitNothing();
+                //gameManager.HandleHitNothing();
             }
         }
     }

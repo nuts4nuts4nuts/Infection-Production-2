@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -6,6 +7,9 @@ public class UIManager : MonoBehaviour {
 
     public Button confirmButton;
     public Button cancelButton;
+    Vector3 confirmVector3 = new Vector3(500.0f, 135.0f, 0.0f); //coordinates correspond to pixel dimensions
+    Vector3 cancelVector3 = new Vector3(560.0f, 135.0f, 0.0f);
+    Vector3 offScreenVector3 = new Vector3(800.0f, 0.0f, 0.0f); //use for buttons offscreen & disabled
 
 	void Start () 
     {
@@ -19,9 +23,10 @@ public class UIManager : MonoBehaviour {
 
     public void Init()
     {
-        Debug.Log("manager.init()");
         confirmButton.enabled = false;
         cancelButton.enabled = false;
+        confirmButton.transform.position = offScreenVector3;
+        cancelButton.transform.position = offScreenVector3;
     }
 
     public void HandleConfirmClick()
@@ -29,20 +34,19 @@ public class UIManager : MonoBehaviour {
         Debug.Log("Confoim");
     }
 
-    public void HandleCancelClick()
-    {
-        Debug.Log("Nah");
-    }
-
-    public void EnableDraftUI()
+    public void EnableDraftUi()
     {
         confirmButton.enabled = true;
         cancelButton.enabled = true;
+        confirmButton.transform.position = confirmVector3;
+        cancelButton.transform.position = cancelVector3;
     }
 
-    public void DisableDraftUI()
+    public void DisableDraftUi()
     {
         confirmButton.enabled = false;
         cancelButton.enabled = false;
+        confirmButton.transform.position = offScreenVector3;
+        cancelButton.transform.position = offScreenVector3;
     }
 }
