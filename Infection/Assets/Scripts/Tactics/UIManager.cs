@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 ﻿using System.Collections.Generic;
 using UnityEditor;
+=======
+﻿using UnityEditor;
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
 public class UIManager : MonoBehaviour {
 
+<<<<<<< HEAD
     //buttons on buttons on buttons
     public Button confirmButton;
     public Button cancelButton;
@@ -18,6 +23,12 @@ public class UIManager : MonoBehaviour {
     Vector3 cancelVector3 = new Vector3(-3.5f, -4.5f, 0.0f);
     Vector3 endTurnVector3 = new Vector3(4.5f, -2.0f, 0.0f);
     Vector3 pauseVector3 = new Vector3(-4.5f, 2.0f, 0.0f);
+=======
+    public Button confirmButton;
+    public Button cancelButton;
+    Vector3 confirmVector3 = new Vector3(3.5f, -4.5f, 0.0f); //coordinates correspond to pixel dimensions
+    Vector3 cancelVector3 = new Vector3(-3.5f, -4.5f, 0.0f);
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
     Vector3 offScreenVector3 = new Vector3(-800.0f, 0.0f, 0.0f); //use for buttons offscreen & disabled
 
 	void Start () 
@@ -34,6 +45,7 @@ public class UIManager : MonoBehaviour {
     {
         confirmButton.enabled = false;
         cancelButton.enabled = false;
+<<<<<<< HEAD
         endTurnButton.enabled = false;
         pauseButton.enabled = false;
         confirmButton.transform.position = offScreenVector3;
@@ -54,6 +66,10 @@ public class UIManager : MonoBehaviour {
             SecondaryCooldown[i].enabled = false;
             SecondaryCooldown[i].transform.position = offScreenVector3;
         }
+=======
+        confirmButton.transform.position = offScreenVector3;
+        cancelButton.transform.position = offScreenVector3;
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
     }
 
     public void HandleConfirmClick()
@@ -61,6 +77,7 @@ public class UIManager : MonoBehaviour {
         Debug.Log("Confoim");
     }
 
+<<<<<<< HEAD
     public void HandlePauseClick()
     {
         Debug.Log("Pause");
@@ -71,12 +88,20 @@ public class UIManager : MonoBehaviour {
         confirmButton.enabled = true;
         cancelButton.enabled = true;
         confirmButton.interactable = true;
+=======
+    public void EnableDraftUi()
+    {
+        confirmButton.enabled = true;
+        confirmButton.interactable = false;
+        cancelButton.enabled = true;
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
         confirmButton.transform.position = confirmVector3;
         cancelButton.transform.position = cancelVector3;
     }
 
     public void DisableDraftUi()
     {
+<<<<<<< HEAD
         confirmButton.enabled = false;
         cancelButton.enabled = false;
         confirmButton.interactable = true;
@@ -158,4 +183,11 @@ public class UIManager : MonoBehaviour {
             CooldownList[i].GetComponentInChildren<Text>().text = "0";
         }
     }
+=======
+        confirmButton.interactable = false;
+        cancelButton.enabled = false;
+        confirmButton.transform.position = offScreenVector3;
+        cancelButton.transform.position = offScreenVector3;
+    }
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
 }

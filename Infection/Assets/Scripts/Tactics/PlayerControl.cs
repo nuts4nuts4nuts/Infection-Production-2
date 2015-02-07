@@ -4,21 +4,24 @@ using System.Collections.Generic;
 
 public class PlayerControl : MonoBehaviour {
 
+<<<<<<< HEAD
     private int currentPlayer;
     private string[] currentPlayers;
     private int currentPlayerCount;
 
     UIManager uiManager;
 
+=======
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
     private GameManager gameManager; // GameObject responsible for the management of the game
     private Camera playerCam;
-    private bool isPieceSelected;
 
 	// Use this for initialization
 	void Start()
     {
         gameManager = gameObject.GetComponent<GameManager>();
         playerCam = Camera.main;
+<<<<<<< HEAD
         isPieceSelected = false;
 
         uiManager = gameManager.GetComponent<UIManager>();
@@ -30,6 +33,8 @@ public class PlayerControl : MonoBehaviour {
         currentPlayers[0] = "HumanPiece";
         currentPlayers[1] = "InvaderPiece";
         currentPlayer = 0;
+=======
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
 	}
 	
 	// Update is called once per frame
@@ -51,29 +56,34 @@ public class PlayerControl : MonoBehaviour {
             if (Physics.Raycast(selectionRay, out hitInfo))
             {
                 GameObject hitObj = hitInfo.collider.gameObject;
+                PieceFunctions pf = (PieceFunctions)hitObj.GetComponent(typeof(PieceFunctions));
+                CardFunctions cf = (CardFunctions)hitObj.GetComponent(typeof(CardFunctions));
                 
                 if(hitObj.tag == "EndTurn")
                 {
+<<<<<<< HEAD
                     //EndFunctions ef = (EndFunctions)hitObj.GetComponent(typeof(EndFunctions));
                     //EndTurn(ef);
+=======
+                    EndFunctions ef = (EndFunctions)hitObj.GetComponent(typeof(EndFunctions));
+
+                    gameManager.HandleEndTurn(ef, playerCam);
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
                 }
-                else if (hitObj.tag == currentPlayers[currentPlayer] && ((PieceFunctions)hitObj.GetComponent(typeof(PieceFunctions))).turnsTillMove <= 0)
+                else if(pf != null)
                 {
-                    GameObject selectedPiece = hitObj;
-                    gameManager.SelectPiece(selectedPiece, playerCam);
+                    gameManager.HandleSelectPiece(hitObj, pf, playerCam);
                 }
                 else if (hitObj.tag == "Tile")
                 {
-                    if(isPieceSelected)
-                    {
-                        gameManager.MovePiece(hitObj);
-                    }
+                    gameManager.HandleSelectTile(hitObj);
                 }
-                else if (hitObj.tag == currentPlayers[(currentPlayer + 1) % 2]) //TODO: This does not support more than 2 players
+                else if(cf != null)
                 {
-                    gameManager.TakePiece(hitObj);
+                    gameManager.HandleSelectCard(hitObj, cf);
                 }
             }
+<<<<<<< HEAD
 
         }
     }
@@ -102,18 +112,14 @@ public class PlayerControl : MonoBehaviour {
             {
                 print("unity is dumb");
             }
+=======
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
             else
-#endif
             {
-                int turnsTillMove = pf.TurnPassed();
-
-                if (turnsTillMove <= 0 && pf.isIncubating)
-                {
-                    gameManager.FinishIncubate(piece, playerCam);
-                }
+                //gameManager.HandleHitNothing();
             }
-
         }
+<<<<<<< HEAD
     }
 
     public void SelectPiece()
@@ -124,5 +130,7 @@ public class PlayerControl : MonoBehaviour {
     public void UnselectPiece()
     {
         isPieceSelected = false;
+=======
+>>>>>>> ca2d131a42cacee9008551f66dc4c83742c78c6d
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TileFunctions : EntityFunctions
+public class TileFunctions : Lerpable
 {
     private bool isInfected = false;
 
@@ -12,10 +12,8 @@ public class TileFunctions : EntityFunctions
     GameManager managerFunctions;
 
 	// Use this for initialization
-	void Start () 
+	protected void Start () 
     {
-        originalColor = renderer.material.color;
-        currentColor = originalColor;
         gameManager = GameObject.Find("GameManager");
         managerFunctions = (GameManager)gameManager.GetComponent(typeof(GameManager));
 
@@ -25,16 +23,27 @@ public class TileFunctions : EntityFunctions
     public void InfectTile()
     {
         isInfected = true;
-        currentColor = Color.red;
+        SetColorCurrent(Color.red);
         managerFunctions.numCleanTiles--;
-        ResetColor();
     }
 
     public void DisinfectTile()
     {
         isInfected = false;
-        currentColor = originalColor;
         managerFunctions.numCleanTiles++;
-        ResetColor();
+        ResetToOriginalColor();
+    }
+
+    public bool isOccupied()
+    {
+        Vector3 direction = new Vector3(0, 0, -1);
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(transform.position, direction, out hitInfo, 5))
+        {
+            return true;
+        }
+
+        return false;
     }
 }
