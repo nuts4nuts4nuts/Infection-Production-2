@@ -3,6 +3,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour {
     private List<GameObject> possibleMovementTiles;
 
     private DraftData data;
+
+    UIManager uiManager;
 
 	// Use this for initialization
 	void Start ()
@@ -40,6 +43,10 @@ public class GameManager : MonoBehaviour {
 
     private void LoadOriginalPieces()
     {
+        uiManager = GameObject.Find("GameManager").GetComponent<UIManager>();
+        uiManager.Init();
+        uiManager.EnableTacticsUi();
+
         int counter = 0;
         string pieceString = "Prefabs/Humans/" + data.humanPieces[counter];
         LoadPiece(pieceString, new Vector3(-0.32355530f, -3.61685f, -1));
@@ -91,6 +98,8 @@ public class GameManager : MonoBehaviour {
         PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
         pf.StartIncubate();
 
+        //enable Incubation counter here
+
         UnselectPiece();
     }
 
@@ -98,6 +107,8 @@ public class GameManager : MonoBehaviour {
     {
         PieceFunctions pf = (PieceFunctions)piece.GetComponent(typeof(PieceFunctions));
         pf.FinishIncubate();
+
+        //disable incubation counter here
 
         List<Vector2> directions = new List<Vector2>();
         Vector2 up = new Vector2(0, 1);

@@ -8,6 +8,8 @@ public class PlayerControl : MonoBehaviour {
     private string[] currentPlayers;
     private int currentPlayerCount;
 
+    UIManager uiManager;
+
     private GameManager gameManager; // GameObject responsible for the management of the game
     private Camera playerCam;
     private bool isPieceSelected;
@@ -18,6 +20,8 @@ public class PlayerControl : MonoBehaviour {
         gameManager = gameObject.GetComponent<GameManager>();
         playerCam = Camera.main;
         isPieceSelected = false;
+
+        uiManager = gameManager.GetComponent<UIManager>();
 
         //Could be more modular later
         currentPlayerCount = 2;
@@ -50,8 +54,8 @@ public class PlayerControl : MonoBehaviour {
                 
                 if(hitObj.tag == "EndTurn")
                 {
-                    EndFunctions ef = (EndFunctions)hitObj.GetComponent(typeof(EndFunctions));
-                    EndTurn(ef);
+                    //EndFunctions ef = (EndFunctions)hitObj.GetComponent(typeof(EndFunctions));
+                    //EndTurn(ef);
                 }
                 else if (hitObj.tag == currentPlayers[currentPlayer] && ((PieceFunctions)hitObj.GetComponent(typeof(PieceFunctions))).turnsTillMove <= 0)
                 {
@@ -74,24 +78,22 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
-    private void EndTurn(EndFunctions endFunctions)
+    public void EndTurn() //overloaded function called by UI
     {
+        Debug.Log("End Button");
+
+        //update Cooldown UI
+        GameObject[] oldPieces = gameManager.GetPlayerPieces(currentPlayers[currentPlayer]);
+        uiManager.UpdateCooldownUi(oldPieces);
+
         //Go to next player
         currentPlayer = (currentPlayer + 1) % currentPlayerCount;
-
-        if (currentPlayer == 0)
-        {
-            endFunctions.SetColor(Color.blue);
-        }
-        else if (currentPlayer == 1)
-        {
-            endFunctions.SetColor(Color.red);
-        }
+        uiManager.UpdateTurnButtonColor(currentPlayer);
 
         //Reactivate new player's pieces
         GameObject[] pieces = gameManager.GetPlayerPieces(currentPlayers[currentPlayer]);
-
-        foreach(GameObject piece in pieces)
+        
+        foreach (GameObject piece in pieces)
         {
             PieceFunctions pf = ((PieceFunctions)piece.GetComponent(typeof(PieceFunctions)));
 
@@ -112,9 +114,6 @@ public class PlayerControl : MonoBehaviour {
             }
 
         }
-#if VIRION_DEBUG
-        print("Turn Ended!");
-#endif
     }
 
     public void SelectPiece()

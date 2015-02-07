@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Tactics\PieceFunctions.cs" />
      <Compile Include="Assets\Scripts\Tactics\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\Tactics\TileFunctions.cs" />
+     <Compile Include="Assets\Scripts\UIManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)4.6.1/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
