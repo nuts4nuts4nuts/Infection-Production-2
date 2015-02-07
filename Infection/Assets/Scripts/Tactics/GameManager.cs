@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 
     private CardHolder humanCardHolder;
     private CardHolder invaderCardHolder;
+    private ViableTiles viableTiles;
     private Lerpable board; 
 
 	// Use this for initialization
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour {
     {
         possibleMovementTiles = new List<GameObject>();
         humanCardHolder = (CardHolder)(GameObject.Find("HumanCards")).GetComponent(typeof(CardHolder));
+        invaderCardHolder = (CardHolder)(GameObject.Find("InvaderCards")).GetComponent(typeof(CardHolder));
+        viableTiles = (ViableTiles)(GameObject.Find("ViableTiles")).GetComponent(typeof(ViableTiles));
 
         board = (Lerpable)(GameObject.Find("Board").GetComponent(typeof(Lerpable)));
 
@@ -47,7 +50,7 @@ public class GameManager : MonoBehaviour {
         currentPlayers[0] = "HumanPiece";
         currentPlayers[1] = "InvaderPiece";
 
-        uiManager = FindObjectOfType<GameManager>().GetComponent<UIManager>();
+        uiManager = gameObject.GetComponent<UIManager>();
         uiManager.Init();
 
         EnterDraftMode();
@@ -126,14 +129,17 @@ public class GameManager : MonoBehaviour {
 
     public void HandleSelectPiece(GameObject piece, PieceFunctions pf, Camera cam)
     {
-        if (piece.tag == currentPlayers[currentPlayerIndex] && pf.turnsTillMove <= 0)
+        if (currentState == GameState.tactics)
         {
-            SelectPiece(piece, cam);
-        }
+            if (piece.tag == currentPlayers[currentPlayerIndex] && pf.turnsTillMove <= 0)
+            {
+                SelectPiece(piece, cam);
+            }
 
-        if(piece.tag != currentPlayers[currentPlayerIndex])
-        {
-            TakePiece(piece);
+            if (piece.tag != currentPlayers[currentPlayerIndex])
+            {
+                TakePiece(piece);
+            }
         }
     }
 
@@ -148,7 +154,10 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            DraftMovePiece(tile);
+            TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
+
+            if(!tf.isOccupied())
+                DraftMovePiece(tile);
         }
     }
 
@@ -157,6 +166,8 @@ public class GameManager : MonoBehaviour {
         Vector3 newPos = new Vector3(pos.x, pos.y, pos.z - 1);
         PieceFunctions pf = LoadPiece(selectedCardFunc.associatedPiece, newPos);
         SelectPiece(pf.gameObject, Camera.main);
+
+        viableTiles.HighlightTeamTiles(((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions))).team);
     }
 
     public void HandleSelectCard(GameObject card, CardFunctions cf)
@@ -173,6 +184,7 @@ public class GameManager : MonoBehaviour {
         Destroy(selectedPiece);
         UnselectPiece();
         ResetSelectedCard();
+        viableTiles.UnHighlightAllTiles();
     }
 
     private void ShowCard(GameObject card, CardFunctions cf)
@@ -183,6 +195,7 @@ public class GameManager : MonoBehaviour {
         selectedCardFunc = cf;
 
         humanCardHolder.LerpToSecondaryPos();
+        invaderCardHolder.LerpToSecondaryPos();
         selectedCardFunc.LerpToSecondaryPos();
 
         board.LerpToSecondaryPos();
@@ -195,6 +208,7 @@ public class GameManager : MonoBehaviour {
         {
             uiManager.DisableDraftUi();
             humanCardHolder.LerpToOriginalPos();
+            invaderCardHolder.LerpToOriginalPos();
             selectedCardFunc.LerpToOriginalPos();
             board.LerpToOriginalPos();
 
@@ -289,12 +303,32 @@ public class GameManager : MonoBehaviour {
     
     public void DraftMovePiece(GameObject tile)
     {
+        TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
         PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
-        Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
+        if(pf)
+        { 
+            Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
 
-        pf.transform.position = newPos;
+            pf.transform.position = newPos;
+            UnselectPiece();
+            SelectPiece(pf.gameObject, Camera.main);
+
+            if(tf.isSelected)
+            {
+                uiManager.confirmButton.interactable = true;
+            }
+            else
+            {
+                uiManager.confirmButton.interactable = false;
+            }
+            
+        }
+    }
+
+    public void ConfirmPiecePlacement()
+    {
         UnselectPiece();
-        SelectPiece(pf.gameObject, Camera.main);
+        HandleHitNothing();
     }
 
     private void TestInfectionLevel()
@@ -313,7 +347,7 @@ public class GameManager : MonoBehaviour {
         {
             PieceFunctions pf = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
 
-            pf.ResetColor();
+            pf.ResetToOriginalColor();
             selectedPiece = null;
             UnHighlightMovementOptions();
         }
@@ -325,9 +359,13 @@ public class GameManager : MonoBehaviour {
 
         foreach (GameObject obj in tiles)
         {
-            obj.renderer.material.color = Color.black;
+            Lerpable objFunc = (Lerpable)obj.GetComponent(typeof(Lerpable));
+            objFunc.SetColorTemp(Color.black);
 
-            ((Lerpable)obj.GetComponent(typeof(Lerpable))).isSelected = true;
+            if (currentState == GameState.tactics)
+            {
+                objFunc.isSelected = true;
+            }
         }
     }
 
@@ -336,8 +374,12 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject obj in possibleMovementTiles)
         {
             Lerpable ef = (Lerpable)obj.GetComponent(typeof(Lerpable));
-            ef.ResetColor();
-            ef.isSelected = false;
+            ef.ResetToCurrentColor();
+
+            if (currentState == GameState.tactics)
+            {
+                ef.isSelected = false;
+            }
         }
 
         possibleMovementTiles.Clear();
@@ -404,11 +446,10 @@ public class GameManager : MonoBehaviour {
         PieceFunctions pf = (PieceFunctions)toTake.GetComponent(typeof(PieceFunctions));
         if(pf.isSelected)
         {
-            GameObject tile = pf.GetTile();
-            TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
-            tf.isSelected = true;
+            TileFunctions tile = pf.GetTile();
+            tile.isSelected = true;
 
-            MovePiece(tile);
+            MovePiece(tile.gameObject);
             Destroy(toTake);
 
             //TODO: Should not be hardcoded

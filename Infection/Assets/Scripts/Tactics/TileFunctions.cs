@@ -14,8 +14,6 @@ public class TileFunctions : Lerpable
 	// Use this for initialization
 	protected void Start () 
     {
-        originalColor = renderer.material.color;
-        currentColor = originalColor;
         gameManager = GameObject.Find("GameManager");
         managerFunctions = (GameManager)gameManager.GetComponent(typeof(GameManager));
 
@@ -25,16 +23,27 @@ public class TileFunctions : Lerpable
     public void InfectTile()
     {
         isInfected = true;
-        currentColor = Color.red;
+        SetColorCurrent(Color.red);
         managerFunctions.numCleanTiles--;
-        ResetColor();
     }
 
     public void DisinfectTile()
     {
         isInfected = false;
-        currentColor = originalColor;
         managerFunctions.numCleanTiles++;
-        ResetColor();
+        ResetToOriginalColor();
+    }
+
+    public bool isOccupied()
+    {
+        Vector3 direction = new Vector3(0, 0, -1);
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(transform.position, direction, out hitInfo, 5))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

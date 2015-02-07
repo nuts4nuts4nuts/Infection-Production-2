@@ -9,7 +9,6 @@ public class CardHolder : Lerpable
     void Start()
     {
         LoadCards();
-        secondaryPosition = new Vector3(0, 10, 0);
     }
 
     private void LoadCards()

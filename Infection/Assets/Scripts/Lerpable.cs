@@ -14,8 +14,8 @@ public class Lerpable : MonoBehaviour {
     [HideInInspector]
     public bool isSelected = false;
 
-    protected Color originalColor;
-    protected Color currentColor;
+    private Color originalColor;
+    private Color currentColor;
 
     private Action<Vector3> doneLerpingDelegate;
     private Vector3 doneLerpingData;
@@ -23,6 +23,12 @@ public class Lerpable : MonoBehaviour {
     protected virtual void Awake()
     {
         originalPosition = gameObject.transform.position;
+
+        if(gameObject.renderer)
+        {
+            originalColor = renderer.material.color;
+            currentColor = originalColor;
+        }
     }
 
 	// Update is called once per frame
@@ -90,8 +96,24 @@ public class Lerpable : MonoBehaviour {
         }
     }
 
-    public void ResetColor()
+    public void ResetToCurrentColor()
     {
         renderer.material.color = currentColor;
+    }
+
+    public void ResetToOriginalColor()
+    {
+        renderer.material.color = originalColor;
+    }
+
+    public void SetColorTemp(Color color)
+    {
+        renderer.material.color = color;
+    }
+
+    public void SetColorCurrent(Color color)
+    {
+        currentColor = color;
+        renderer.material.color = color;
     }
 }

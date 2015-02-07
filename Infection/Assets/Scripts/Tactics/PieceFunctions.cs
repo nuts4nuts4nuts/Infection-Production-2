@@ -42,8 +42,6 @@ public class PieceFunctions : Lerpable
     protected override void Awake()
     {
         base.Awake();
-        originalColor = renderer.material.color;
-        currentColor = originalColor;
     }
 
     void Start()
@@ -83,13 +81,12 @@ public class PieceFunctions : Lerpable
 
     private void InfectTile()
     {
-        GameObject tile = GetTile();
+        TileFunctions tile = GetTile();
 
-        TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
-        tf.InfectTile();
+        tile.InfectTile();
     }
 
-    public GameObject GetTile()
+    public TileFunctions GetTile()
     {
         Vector3 direction = new Vector3(0, 0, 1);
         RaycastHit hitInfo;
@@ -98,7 +95,7 @@ public class PieceFunctions : Lerpable
             TileFunctions tf = (TileFunctions)hitInfo.collider.gameObject.GetComponent(typeof(TileFunctions));
             if (tf != null)
             {
-                return hitInfo.collider.gameObject;
+                return tf;
             }
         }
         return null;
