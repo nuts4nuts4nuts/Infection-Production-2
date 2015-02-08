@@ -65,7 +65,7 @@ public class Lerpable : MonoBehaviour {
         doneLerpingDelegates.Add(delegateFunc);
     }
 
-    private void FinishedLerping()
+    protected void FinishedLerping()
     {
         foreach( Action a in doneLerpingDelegates)
         {

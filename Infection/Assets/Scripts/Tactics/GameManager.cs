@@ -24,12 +24,11 @@ public class GameManager : MonoBehaviour {
     private GameObject selectedPiece;
     private List<GameObject> possibleMovementTiles;
 
-    private int currentPlayerIndex = 0;
+    private int currentPlayerIndex = 1;
     private string[] currentPlayers;
     private int numPlayers = 2;
 
     //Draft data
-    private GameObject selectedCard;
     private CardFunctions selectedCardFunc;
     private bool canSelectCard = true;
 
@@ -59,7 +58,7 @@ public class GameManager : MonoBehaviour {
         uiManager.Init();
 
         snakeDraftCounter = new int[2];
-        currentDraftTeam = CardFunctions.Team.human;
+        currentDraftTeam = CardFunctions.Team.invader;
 
         EnterDraftMode();
 	}
@@ -83,6 +82,14 @@ public class GameManager : MonoBehaviour {
                                                 board.transform.position.z - 8.0f);
 
         board.LerpTo(boardMainPosition);
+
+        GameObject[] invaders = GameObject.FindGameObjectsWithTag("InvaderPiece");
+        PieceFunctions pf;
+        foreach (GameObject go in invaders)
+        {
+            pf = (PieceFunctions)go.GetComponent(typeof(PieceFunctions));
+            pf.InfectTile();
+        }
     }
 
     private PieceFunctions LoadPiece(string pieceName, Vector3 pos)
@@ -198,7 +205,7 @@ public class GameManager : MonoBehaviour {
         if(!cf.isDrafted && canSelectCard && currentDraftTeam == cf.team)
         { 
             uiManager.EnableDraftUi();
-            ShowCard(card, cf);
+            ShowCard(cf);
         }
     }
 
@@ -218,10 +225,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void ShowCard(GameObject card, CardFunctions cf)
+    private void ShowCard(CardFunctions cf)
     {
         canSelectCard = false;
-        selectedCard = card;
         selectedCardFunc = cf;
 
         selectedCardFunc.LerpToSecondaryPos();
@@ -244,7 +250,6 @@ public class GameManager : MonoBehaviour {
             board.LerpToOriginalPos();
 
             selectedCardFunc = null;
-            selectedCard = null;
         }
     }
 
@@ -285,11 +290,9 @@ public class GameManager : MonoBehaviour {
         Vector2 right = new Vector2(1, 0);
         Vector2 left = new Vector2(-1, 0);
 
-
-        //TODO: make this work with the piece-wise forward stuff
+        directions.Add(down);
         directions.Add(right);
         directions.Add(left);
-        directions.Add(down);
         directions.Add(up);
 
         List<GameObject> tiles = GeneratePossibleMoves(piece, camera, directions);
@@ -316,26 +319,25 @@ public class GameManager : MonoBehaviour {
         Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
 
         pf.LerpTo(newPos, PieceFunctions.LerpSpeed.faster);
+        pf.ExecWhenFinishedLerp(TestInfectionLevel);
         pf.JustMoved();
 
         UnselectPiece();
-
-        TestInfectionLevel();
     }
     
     public void DraftMovePiece(GameObject tile)
     {
         TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
-        PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
-        if(pf)
-        { 
+        if(selectedPiece)
+        {
+            PieceFunctions pf = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
             Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
 
             pf.transform.position = newPos;
             UnselectPiece();
             SelectPiece(pf.gameObject, Camera.main);
 
-            if(tf.isSelected)
+            if (tf.isSelected)
             {
                 uiManager.confirmButton.interactable = true;
             }
@@ -343,7 +345,6 @@ public class GameManager : MonoBehaviour {
             {
                 uiManager.confirmButton.interactable = false;
             }
-            
         }
     }
 
@@ -371,14 +372,15 @@ public class GameManager : MonoBehaviour {
         HandleHitCancelButton();
     }
 
-    private void TestInfectionLevel()
+    public void TestInfectionLevel()
     {
-#if VIRION_DEBUG
         if(numCleanTiles <= infectedTileThreshold)
         {
+#if VIRION_DEBUG
             print("INVADERS WIN!");
-        }
 #endif
+            uiManager.EnableRestartButton("INVADERS\nWIN!");
+        }
     }
 
     private void UnselectPiece()
@@ -483,6 +485,8 @@ public class GameManager : MonoBehaviour {
 #if VIRION_DEBUG
                 print("HUMANS WIN!");
 #endif
+
+                uiManager.EnableRestartButton("HUMANS\nWIN!");
             }
         }
         else
@@ -500,5 +504,10 @@ public class GameManager : MonoBehaviour {
     public void SetCanSelectCard()
     {
         canSelectCard = true;
+    }
+
+    public void Restart()
+    {
+        Application.LoadLevel("StartScreen");
     }
 }

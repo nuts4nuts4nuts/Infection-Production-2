@@ -69,17 +69,19 @@ public class PieceFunctions : Lerpable
             transform.position = Vector3.Lerp(transform.position, lerpTarget, lerpSpeed * Time.deltaTime);
             if (Vector3.SqrMagnitude(transform.position - lerpTarget) < 0.001f)
             {
-                isLerping = false;
-
                 if (team == Team.invader)
                 {
                     InfectTile();
                 }
+
+                isLerping = false;
+                transform.position = lerpTarget;
+                FinishedLerping();
             }
         }
     }
 
-    private void InfectTile()
+    public void InfectTile()
     {
         TileFunctions tile = GetTile();
 
