@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour {
     public enum GameState
     {
         draft = 0,
-        tactics
+        tactics,
+        start
     }
-    public GameState currentState = GameState.draft;
+    public GameState currentState = GameState.start;
 
     public int numCleanTiles = 0;
     public int infectedTileThreshold = 12;
@@ -60,17 +61,11 @@ public class GameManager : MonoBehaviour {
 
         snakeDraftCounter = new int[2];
         currentDraftTeam = CardFunctions.Team.human;
-
-        EnterDraftMode();
 	}
 
     public void EnterDraftMode()
     {
         currentState = GameState.draft;
-
-        GameObject endTurn = GameObject.Find("EndTurn");
-        endTurn.SetActive(false);
-
         viableTiles.InfectCenterTile();
     }
 

@@ -11,16 +11,6 @@ public class UIManager : MonoBehaviour {
     Vector3 cancelVector3 = new Vector3(-3.5f, -4.5f, 0.0f);
     Vector3 offScreenVector3 = new Vector3(-800.0f, 0.0f, 0.0f); //use for buttons offscreen & disabled
 
-	void Start () 
-    {
-	
-	}
-	
-	void Update () 
-    {
-	
-	}
-
     public void Init()
     {
         confirmButton.enabled = false;
