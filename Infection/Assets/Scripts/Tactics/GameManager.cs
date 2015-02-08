@@ -11,9 +11,8 @@ public class GameManager : MonoBehaviour {
     {
         draft = 0,
         tactics,
-        start
     }
-    public GameState currentState = GameState.start;
+    public GameState currentState = GameState.draft;
 
     public int numCleanTiles = 0;
     public int infectedTileThreshold = 12;
@@ -61,6 +60,8 @@ public class GameManager : MonoBehaviour {
 
         snakeDraftCounter = new int[2];
         currentDraftTeam = CardFunctions.Team.human;
+
+        EnterDraftMode();
 	}
 
     public void EnterDraftMode()

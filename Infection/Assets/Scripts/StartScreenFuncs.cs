@@ -8,7 +8,7 @@ public class StartScreenFuncs : MonoBehaviour
 
     void Awake()
     {
-        startButton.transform.position = new Vector3(0, -0.2f, -9.1f);
+        startButton.transform.position = new Vector3(0, -0.4f, -9.1f);
         startButton.enabled = true;
     }
 
