@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 
     public int numCleanTiles = 0;
     public int infectedTileThreshold = 12;
+    public int piecesPerSide = 4;
 
     //reference to UIManager script on GameManager
     private UIManager uiManager;
@@ -77,10 +78,15 @@ public class GameManager : MonoBehaviour {
     {
         currentState = GameState.tactics;
 
-        GameObject endTurn = GameObject.Find("EndTurn");
-        endTurn.SetActive(true);
-
         viableTiles.DisinfectCenterTile();
+
+        humanCardHolder.LerpToSecondaryPos();
+        invaderCardHolder.LerpToSecondaryPos();
+        Vector3 boardMainPosition = new Vector3(board.transform.position.x,
+                                                board.transform.position.y,
+                                                board.transform.position.z - 8.0f);
+
+        board.LerpTo(boardMainPosition);
     }
 
     private PieceFunctions LoadPiece(string pieceName, Vector3 pos)
@@ -142,14 +148,13 @@ public class GameManager : MonoBehaviour {
     {
         if (currentState == GameState.tactics)
         {
-            if (piece.tag == currentPlayers[currentPlayerIndex] && pf.turnsTillMove <= 0)
-            {
-                SelectPiece(piece, cam);
-            }
-
-            if (piece.tag != currentPlayers[currentPlayerIndex])
+            if (piece.tag != currentPlayers[currentPlayerIndex] && selectedPiece)
             {
                 TakePiece(piece);
+            }
+            else
+            {
+                SelectPiece(piece, cam);
             }
         }
     }
@@ -158,9 +163,19 @@ public class GameManager : MonoBehaviour {
     {
         if(currentState == GameState.tactics)
         {
-            if (selectedPiece)
+            TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
+
+            if(selectedPiece)
             {
-                MovePiece(tile);
+                PieceFunctions pf = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
+                if (selectedPiece.tag == currentPlayers[currentPlayerIndex] && tf.isSelected && pf.turnsTillMove <= 0)
+                {
+                    MovePiece(tile);
+                }
+                else
+                {
+                    UnselectPiece();
+                }
             }
         }
         else
@@ -172,9 +187,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void PlacePiece(Vector3 pos)
+    private void InitialPlacePiece()
     {
-        Vector3 newPos = new Vector3(pos.x, pos.y, pos.z - 1);
+        Vector3 centerPos = viableTiles.centerTile.transform.position;
+        Vector3 newPos = new Vector3(centerPos.x, centerPos.y, centerPos.z - 1);
         PieceFunctions pf = LoadPiece(selectedCardFunc.associatedPiece, newPos);
         SelectPiece(pf.gameObject, Camera.main);
 
@@ -190,7 +206,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void HandleHitNothing() //now called by cancelButton.onClick()
+    public void HandleHitCancelButton() //now called by cancelButton.onClick()
     {
         Destroy(selectedPiece);
         UnselectPiece();
@@ -198,18 +214,26 @@ public class GameManager : MonoBehaviour {
         viableTiles.UnHighlightAllTiles();
     }
 
+    public void HandleHitNothing()
+    {
+        if(currentState == GameState.tactics)
+        {
+            UnselectPiece();
+        }
+    }
+
     private void ShowCard(GameObject card, CardFunctions cf)
     {
+        canSelectCard = false;
         selectedCard = card;
         selectedCardFunc = cf;
 
         selectedCardFunc.LerpToSecondaryPos();
-        SetCanSelectCard(false);
         humanCardHolder.LerpToSecondaryPos();
         invaderCardHolder.LerpToSecondaryPos();
 
         board.LerpToSecondaryPos();
-        board.ExecWhenFinishedLerp(PlacePiece, board.secondaryPosition);
+        board.ExecWhenFinishedLerp(InitialPlacePiece);
     }
 
     private void ResetSelectedCard()
@@ -218,7 +242,7 @@ public class GameManager : MonoBehaviour {
         {
             uiManager.DisableDraftUi();
             selectedCardFunc.LerpToOriginalPos();
-            selectedCardFunc.ExecWhenFinishedLerp(SetCanSelectCard, true);
+            selectedCardFunc.ExecWhenFinishedLerp(SetCanSelectCard);
             humanCardHolder.LerpToOriginalPos();
             invaderCardHolder.LerpToOriginalPos();
             board.LerpToOriginalPos();
@@ -292,22 +316,13 @@ public class GameManager : MonoBehaviour {
 
     public void MovePiece(GameObject tile) 
     {
-        TileFunctions tf = (TileFunctions)tile.GetComponent(typeof(TileFunctions));
+        PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
+        Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
 
-        if (tf.isSelected)
-        {
-            PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
-            Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
+        pf.LerpTo(newPos, PieceFunctions.LerpSpeed.faster);
+        pf.JustMoved();
 
-            pf.LerpTo(newPos, PieceFunctions.LerpSpeed.faster);
-            pf.JustMoved();
-
-            UnselectPiece();
-        }
-        else
-        {
-            UnselectPiece();
-        }
+        UnselectPiece();
 
         TestInfectionLevel();
     }
@@ -351,7 +366,13 @@ public class GameManager : MonoBehaviour {
             currentDraftTeam = (CardFunctions.Team)otherTeamInt;
         }
 
-        HandleHitNothing();
+        //TODO: make more flexible
+        if(snakeDraftCounter[0] + snakeDraftCounter[1] == piecesPerSide)
+        {
+            selectedCardFunc.ExecWhenFinishedLerp(EnterTacticsMode);
+        }
+
+        HandleHitCancelButton();
     }
 
     private void TestInfectionLevel()
@@ -497,8 +518,8 @@ public class GameManager : MonoBehaviour {
         return pieces;
     }
 
-    public void SetCanSelectCard(bool yOrN)
+    public void SetCanSelectCard()
     {
-        canSelectCard = yOrN;
+        canSelectCard = true;
     }
 }

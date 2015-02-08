@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Lerpable : MonoBehaviour {
 
@@ -17,11 +18,7 @@ public class Lerpable : MonoBehaviour {
     private Color originalColor;
     private Color currentColor;
 
-    private Action<Vector3> doneLerpingDelegateVector;
-    private Vector3 doneLerpingDataVector;
-
-    private Action<bool> doneLerpingDelegateBool;
-    private bool doneLerpingDataBool;
+    private List<Action> doneLerpingDelegates;
 
     protected virtual void Awake()
     {
@@ -32,6 +29,8 @@ public class Lerpable : MonoBehaviour {
             originalColor = renderer.material.color;
             currentColor = originalColor;
         }
+
+        doneLerpingDelegates = new List<Action>();
     }
 
 	// Update is called once per frame
@@ -61,35 +60,19 @@ public class Lerpable : MonoBehaviour {
         }
     }
 
-    public void ExecWhenFinishedLerp(Action<Vector3> delegateFunc, Vector3 delegateData)
+    public void ExecWhenFinishedLerp(Action delegateFunc)
     {
-        doneLerpingDelegateVector = delegateFunc;
-        doneLerpingDataVector = delegateData;
-    }
-
-    public void ExecWhenFinishedLerp(Action<bool> delegateFunc, bool delegateData)
-    {
-        doneLerpingDelegateBool = delegateFunc;
-        doneLerpingDataBool = delegateData;
+        doneLerpingDelegates.Add(delegateFunc);
     }
 
     private void FinishedLerping()
     {
-        if(doneLerpingDelegateVector != null)
+        foreach( Action a in doneLerpingDelegates)
         {
-            doneLerpingDelegateVector(doneLerpingDataVector);
-
-            doneLerpingDataVector = Vector3.zero;
-            doneLerpingDelegateVector = null;
+            a();
         }
-        
-        if(doneLerpingDelegateBool != null)
-        {
-            doneLerpingDelegateBool(doneLerpingDataBool);
 
-            doneLerpingDataBool = false;
-            doneLerpingDelegateBool = null;
-        }
+        doneLerpingDelegates.Clear();
     }
 
     public virtual void LerpToOriginalPos(float speed = -1)

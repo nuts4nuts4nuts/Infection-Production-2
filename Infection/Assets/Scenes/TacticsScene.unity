@@ -986,7 +986,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: a08c086dfb40a9b488be661c0d784d37, type: 2}
+  - {fileID: 2100000, guid: 28f384911c1d35f4e857c9b9b03eb348, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1106,6 +1106,7 @@ MonoBehaviour:
   currentState: 0
   numCleanTiles: 0
   infectedTileThreshold: 12
+  piecesPerSide: 2
 --- !u!4 &313154846
 Transform:
   m_ObjectHideFlags: 0
@@ -2586,7 +2587,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .53725493, g: .513725519, b: .513725519, a: 1}
     m_PressedColor: {r: .219607845, g: .219607845, b: .219607845, a: 1}
-    m_DisabledColor: {r: .213235319, g: .0423334837, b: .0423334837, a: .501960814}
+    m_DisabledColor: {r: .20588237, g: .0499567501, b: .156416342, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:
@@ -4790,7 +4791,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 313154845}
-        m_MethodName: HandleHitNothing
+        m_MethodName: HandleHitCancelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
