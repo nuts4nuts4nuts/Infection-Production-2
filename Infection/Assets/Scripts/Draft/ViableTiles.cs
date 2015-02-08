@@ -6,9 +6,16 @@ public class ViableTiles : MonoBehaviour
 {
     public List<GameObject> humanTiles;
     public List<GameObject> invaderTiles;
+    public GameObject centerTile;
 
     private List<TileFunctions> humanFuncs;
     private List<TileFunctions> invaderFuncs;
+    private TileFunctions centerTileFuncs;
+
+    void Awake()
+    {
+        centerTileFuncs = (TileFunctions)centerTile.GetComponent(typeof(TileFunctions));
+    }
 
     void Start()
     {
@@ -86,5 +93,15 @@ public class ViableTiles : MonoBehaviour
             tile.isSelected = true;
         }
 
+    }
+
+    public void InfectCenterTile()
+    {
+        centerTileFuncs.InfectTile();
+    }
+
+    public void DisinfectCenterTile()
+    {
+        centerTileFuncs.DisinfectTile();
     }
 }

@@ -9,7 +9,7 @@ public class Lerpable : MonoBehaviour {
 
     protected Vector3 lerpTarget;
     protected bool isLerping = false;
-    protected float lerpSpeed = 10.0f;
+    protected float lerpSpeed = 13.0f;
 
     [HideInInspector]
     public bool isSelected = false;
@@ -17,8 +17,11 @@ public class Lerpable : MonoBehaviour {
     private Color originalColor;
     private Color currentColor;
 
-    private Action<Vector3> doneLerpingDelegate;
-    private Vector3 doneLerpingData;
+    private Action<Vector3> doneLerpingDelegateVector;
+    private Vector3 doneLerpingDataVector;
+
+    private Action<bool> doneLerpingDelegateBool;
+    private bool doneLerpingDataBool;
 
     protected virtual void Awake()
     {
@@ -41,6 +44,7 @@ public class Lerpable : MonoBehaviour {
             if (Vector3.SqrMagnitude(transform.position - lerpTarget) < 0.0001f)
             {
                 isLerping = false;
+                transform.position = lerpTarget;
                 FinishedLerping();
             }
         }
@@ -59,18 +63,32 @@ public class Lerpable : MonoBehaviour {
 
     public void ExecWhenFinishedLerp(Action<Vector3> delegateFunc, Vector3 delegateData)
     {
-        doneLerpingDelegate = delegateFunc;
-        doneLerpingData = delegateData;
+        doneLerpingDelegateVector = delegateFunc;
+        doneLerpingDataVector = delegateData;
+    }
+
+    public void ExecWhenFinishedLerp(Action<bool> delegateFunc, bool delegateData)
+    {
+        doneLerpingDelegateBool = delegateFunc;
+        doneLerpingDataBool = delegateData;
     }
 
     private void FinishedLerping()
     {
-        if(doneLerpingDelegate != null)
+        if(doneLerpingDelegateVector != null)
         {
-            doneLerpingDelegate(doneLerpingData);
+            doneLerpingDelegateVector(doneLerpingDataVector);
 
-            doneLerpingData = Vector3.zero;
-            doneLerpingDelegate = null;
+            doneLerpingDataVector = Vector3.zero;
+            doneLerpingDelegateVector = null;
+        }
+        
+        if(doneLerpingDelegateBool != null)
+        {
+            doneLerpingDelegateBool(doneLerpingDataBool);
+
+            doneLerpingDataBool = false;
+            doneLerpingDelegateBool = null;
         }
     }
 
@@ -104,6 +122,7 @@ public class Lerpable : MonoBehaviour {
     public void ResetToOriginalColor()
     {
         renderer.material.color = originalColor;
+        currentColor = originalColor;
     }
 
     public void SetColorTemp(Color color)

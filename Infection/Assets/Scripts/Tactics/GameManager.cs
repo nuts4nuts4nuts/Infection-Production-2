@@ -30,11 +30,15 @@ public class GameManager : MonoBehaviour {
     //Draft data
     private GameObject selectedCard;
     private CardFunctions selectedCardFunc;
+    private bool canSelectCard = true;
 
     private CardHolder humanCardHolder;
     private CardHolder invaderCardHolder;
     private ViableTiles viableTiles;
     private Lerpable board; 
+
+    private int[] snakeDraftCounter;
+    private CardFunctions.Team currentDraftTeam;
 
 	// Use this for initialization
 	void Start ()
@@ -53,6 +57,9 @@ public class GameManager : MonoBehaviour {
         uiManager = gameObject.GetComponent<UIManager>();
         uiManager.Init();
 
+        snakeDraftCounter = new int[2];
+        currentDraftTeam = CardFunctions.Team.human;
+
         EnterDraftMode();
 	}
 
@@ -62,6 +69,8 @@ public class GameManager : MonoBehaviour {
 
         GameObject endTurn = GameObject.Find("EndTurn");
         endTurn.SetActive(false);
+
+        viableTiles.InfectCenterTile();
     }
 
     public void EnterTacticsMode()
@@ -70,6 +79,8 @@ public class GameManager : MonoBehaviour {
 
         GameObject endTurn = GameObject.Find("EndTurn");
         endTurn.SetActive(true);
+
+        viableTiles.DisinfectCenterTile();
     }
 
     private PieceFunctions LoadPiece(string pieceName, Vector3 pos)
@@ -172,7 +183,7 @@ public class GameManager : MonoBehaviour {
 
     public void HandleSelectCard(GameObject card, CardFunctions cf)
     {
-        if(selectedCard != card && !cf.isDrafted)
+        if(!cf.isDrafted && canSelectCard && currentDraftTeam == cf.team)
         { 
             uiManager.EnableDraftUi();
             ShowCard(card, cf);
@@ -189,14 +200,13 @@ public class GameManager : MonoBehaviour {
 
     private void ShowCard(GameObject card, CardFunctions cf)
     {
-        ResetSelectedCard();
-
         selectedCard = card;
         selectedCardFunc = cf;
 
+        selectedCardFunc.LerpToSecondaryPos();
+        SetCanSelectCard(false);
         humanCardHolder.LerpToSecondaryPos();
         invaderCardHolder.LerpToSecondaryPos();
-        selectedCardFunc.LerpToSecondaryPos();
 
         board.LerpToSecondaryPos();
         board.ExecWhenFinishedLerp(PlacePiece, board.secondaryPosition);
@@ -207,9 +217,10 @@ public class GameManager : MonoBehaviour {
         if (selectedCardFunc)
         {
             uiManager.DisableDraftUi();
+            selectedCardFunc.LerpToOriginalPos();
+            selectedCardFunc.ExecWhenFinishedLerp(SetCanSelectCard, true);
             humanCardHolder.LerpToOriginalPos();
             invaderCardHolder.LerpToOriginalPos();
-            selectedCardFunc.LerpToOriginalPos();
             board.LerpToOriginalPos();
 
             selectedCardFunc = null;
@@ -328,6 +339,18 @@ public class GameManager : MonoBehaviour {
     public void ConfirmPiecePlacement()
     {
         UnselectPiece();
+
+        selectedCardFunc.DraftCard();
+
+        int otherTeamInt = (int)(currentDraftTeam + 1) % (int)CardFunctions.Team.teamCount; //This is stupid
+        int currentTeamInt = (int)currentDraftTeam;
+        snakeDraftCounter[currentTeamInt]++;
+
+        if (snakeDraftCounter[currentTeamInt] > snakeDraftCounter[otherTeamInt])
+        {
+            currentDraftTeam = (CardFunctions.Team)otherTeamInt;
+        }
+
         HandleHitNothing();
     }
 
@@ -472,5 +495,10 @@ public class GameManager : MonoBehaviour {
     {
         GameObject[] pieces = GameObject.FindGameObjectsWithTag(playerName);
         return pieces;
+    }
+
+    public void SetCanSelectCard(bool yOrN)
+    {
+        canSelectCard = yOrN;
     }
 }

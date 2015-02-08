@@ -11,12 +11,17 @@ public class TileFunctions : Lerpable
     GameObject gameManager;
     GameManager managerFunctions;
 
-	// Use this for initialization
-	protected void Start () 
+    protected override void Awake()
     {
+        base.Awake();
+
         gameManager = GameObject.Find("GameManager");
         managerFunctions = (GameManager)gameManager.GetComponent(typeof(GameManager));
+    }
 
+	// Use this for initialization
+	protected void Start() 
+    {
         managerFunctions.numCleanTiles++;
 	}
 
