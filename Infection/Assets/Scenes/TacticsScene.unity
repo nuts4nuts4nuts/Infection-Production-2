@@ -162,6 +162,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1001 &29027308
@@ -540,6 +541,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &185237448
@@ -678,6 +680,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &261607339
@@ -768,6 +771,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &270955369
@@ -906,6 +910,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &286575251
@@ -1279,6 +1284,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &434924515
@@ -1369,6 +1375,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1 &483711204
@@ -1459,6 +1466,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &484275415
@@ -1609,6 +1617,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &518098412
@@ -1699,6 +1708,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &522286240
@@ -1837,6 +1847,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &538617285
@@ -1874,7 +1885,7 @@ MonoBehaviour:
   - {fileID: 149982, guid: bef87f089bfd0e34192d1e0291468469, type: 2}
   - {fileID: 101806, guid: 244a1204c04fdc94da2ea0d9ff067af4, type: 2}
   - {fileID: 199344, guid: 745e5ec394da5dd4daf0955eae202dbb, type: 2}
-  - {fileID: 101806, guid: 244a1204c04fdc94da2ea0d9ff067af4, type: 2}
+  - {fileID: 194410, guid: 194ab20d0395b2646a43c8f43f14aa17, type: 2}
 --- !u!4 &538617287
 Transform:
   m_ObjectHideFlags: 0
@@ -2051,6 +2062,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1 &574040785
@@ -2214,6 +2226,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &584199585
@@ -2526,6 +2539,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1 &704288142
@@ -2732,6 +2746,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &750211283
@@ -2822,6 +2837,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &784431504
@@ -2990,6 +3006,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &815462826
@@ -3128,6 +3145,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1 &827251989
@@ -3218,6 +3236,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &842446103
@@ -3360,6 +3379,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &882063991
@@ -3498,6 +3518,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1001 &938081633
@@ -3750,6 +3771,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1 &988772541
@@ -3903,6 +3925,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1011005617
@@ -4041,6 +4064,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1061887031
@@ -4131,6 +4155,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1102484286
@@ -4360,6 +4385,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1152932013
@@ -4918,6 +4944,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1264806501
@@ -5056,6 +5083,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1308581749
@@ -5146,6 +5174,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1311140163
@@ -5488,6 +5517,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1393365683
@@ -5578,6 +5608,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1397716675
@@ -5668,6 +5699,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1422706451
@@ -5995,6 +6027,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1595323711
@@ -6317,6 +6350,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1697567869
@@ -6407,6 +6441,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1001 &1699285034
@@ -6593,6 +6628,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1771840049
@@ -6683,6 +6719,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1793196436
@@ -6773,6 +6810,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1795375837
@@ -6911,6 +6949,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1804920021
@@ -7001,6 +7040,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1820958620
@@ -7091,6 +7131,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1821788919
@@ -7181,6 +7222,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1834655329
@@ -7271,6 +7313,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1859615040
@@ -7361,6 +7404,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1906983998
@@ -7451,6 +7495,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1924533740
@@ -7685,6 +7730,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1980274788
@@ -7879,6 +7925,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &2045670040
@@ -7969,6 +8016,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &2054823459
@@ -8059,6 +8107,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1001 &2061271765
@@ -8201,6 +8250,7 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1 &2120006982
@@ -8291,5 +8341,6 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0, z: 0}
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
+  isInfected: 0
   humanSpawn: 0
   invaderSpawn: 0

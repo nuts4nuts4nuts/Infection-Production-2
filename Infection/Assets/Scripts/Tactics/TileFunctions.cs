@@ -3,7 +3,8 @@ using System.Collections;
 
 public class TileFunctions : Lerpable
 {
-    private bool isInfected = false;
+    [HideInInspector]
+    public bool isInfected = false;
 
     public bool humanSpawn = false;
     public bool invaderSpawn = false;

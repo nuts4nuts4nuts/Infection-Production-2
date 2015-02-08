@@ -138,4 +138,11 @@ public class PieceFunctions : Lerpable
     {
         isIncubating = false;
     }
+
+    public List<GameObject> GeneratePossibleMoves(Camera cam, int tileSize)
+    {
+        MovementPattern pattern = (MovementPattern)gameObject.GetComponent(typeof(MovementPattern));
+
+        return pattern.GeneratePossibleMoves(cam, tileSize);
+    }
 }

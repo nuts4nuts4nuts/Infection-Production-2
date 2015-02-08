@@ -33,6 +33,7 @@ GameObject:
   - 114: {fileID: 11437850}
   - 199: {fileID: 19937850}
   - 198: {fileID: 19837850}
+  - 114: {fileID: 11448604}
   m_Layer: 0
   m_Name: HumanBishop
   m_TagString: HumanPiece
@@ -193,6 +194,17 @@ MonoBehaviour:
   isIncubating: 0
   turnsTillMove: 0
   team: 0
+--- !u!114 &11448604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937e939e97d42e247ba0f987c9abf945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &13637850
 CapsuleCollider:
   m_ObjectHideFlags: 1

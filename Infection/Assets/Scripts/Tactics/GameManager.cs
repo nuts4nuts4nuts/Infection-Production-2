@@ -429,51 +429,34 @@ public class GameManager : MonoBehaviour {
     {
         List<GameObject> tileList = new List<GameObject>();
         Vector3 piecePos = selectedPiece.transform.position;
-
         List<Vector2> pieceDirections;
-        int ySign = 1;
 
+        int tileSize = 1; //TODO: want to link this stronger.
+
+        //If we want to use the piece's movement
         if(directions == null)
         {
             PieceFunctions pf = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
-            pieceDirections = pf.movementDirections;
-            ySign = pf.ySign;
+            return (pf.GeneratePossibleMoves(playerCam, tileSize));
         }
-        else
-        {
-            pieceDirections = directions;
-        }
+        //--------------------------------------
 
-        int tileSize = 1; //TODO: want to link this stronger.
+        pieceDirections = directions;
 
         foreach (Vector2 movement in pieceDirections)
         {
             Vector3 newPos = piecePos;
             newPos.x += movement.x * tileSize;
-            newPos.y += movement.y * ySign * tileSize;
+            newPos.y += movement.y * tileSize;
 
             Vector3 direction = newPos - playerCam.transform.position;
 
             RaycastHit hitInfo;
             if (Physics.Raycast(playerCam.transform.position, direction, out hitInfo, 1000))
             {
-                PieceFunctions selectedPieceFunctions = (PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions));
-                PieceFunctions hitPieceFunctions = (PieceFunctions)hitInfo.collider.gameObject.GetComponent(typeof(PieceFunctions));
-
-                bool nullCheck = selectedPieceFunctions && hitPieceFunctions;
-
                 if (hitInfo.collider.gameObject.tag == "Tile")
                 {
                     tileList.Add(hitInfo.collider.gameObject);
-                }
-                else if (nullCheck)
-                {
-                    bool teamsRight = selectedPieceFunctions.team == PieceFunctions.Team.human && hitPieceFunctions.team == PieceFunctions.Team.invader;
-
-                    if(teamsRight)
-                    {
-                        tileList.Add(hitInfo.collider.gameObject);
-                    }
                 }
             }
         }
