@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class ViableTiles : MonoBehaviour
 {
+    public Color highlightColor = Color.cyan;
+
     public List<GameObject> humanTiles;
     public List<GameObject> invaderTiles;
     public GameObject centerTile;
@@ -61,7 +63,7 @@ public class ViableTiles : MonoBehaviour
             //TODO: make this more robust
             if(!tile.isOccupied())
             {
-                tile.SetColorCurrent(Color.cyan);
+                tile.SetColorCurrent(highlightColor);
                 tile.isSelected = true;
             }
         }
@@ -74,7 +76,7 @@ public class ViableTiles : MonoBehaviour
             //TODO: make this more robust
             if(!tile.isOccupied())
             {
-                tile.SetColorCurrent(Color.cyan);
+                tile.SetColorCurrent(highlightColor);
                 tile.isSelected = true;
             }
         }

@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &172672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 472672}
-  - 33: {fileID: 3372672}
-  - 65: {fileID: 6572672}
-  - 23: {fileID: 2372672}
-  - 102: {fileID: 10272672}
-  m_Layer: 0
-  m_Name: Identifier
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &192390
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,51 +22,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &472672
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172672}
-  m_LocalRotation: {x: 0, y: .707106829, z: .707106829, w: 0}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
-  m_LocalScale: {x: .199999914, y: .199999958, z: .199999958}
-  m_Children: []
-  m_Father: {fileID: 492390}
-  m_RootOrder: 0
 --- !u!4 &492390
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192390}
-  m_LocalRotation: {x: 0, y: -.707106829, z: -.707106829, w: 0}
-  m_LocalPosition: {x: 9.77318573, y: -3.85912466, z: .0257301331}
-  m_LocalScale: {x: .5, y: .5, z: .5}
-  m_Children:
-  - {fileID: 472672}
+  m_LocalRotation: {x: -.5, y: .5, z: -.5, w: .5}
+  m_LocalPosition: {x: -12.2350903, y: 1.82044446, z: 4.51048136}
+  m_LocalScale: {x: .0500000007, y: .0500000007, z: .0500000007}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2372672
-Renderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172672}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!23 &2392390
 Renderer:
   m_ObjectHideFlags: 1
@@ -98,7 +46,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: f51709f8d0ad6344e96719c78f38b959, type: 2}
+  - {fileID: 2100000, guid: 5dc2659aab6296b4f9611ce4dde41582, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -106,53 +54,13 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3372672
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172672}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3392390
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192390}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6572672
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172672}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!102 &10272672
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172672}
-  m_Text: A
-  m_OffsetZ: 0
-  m_CharacterSize: 1
-  m_LineSpacing: 1
-  m_Anchor: 4
-  m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 48
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
+  m_Mesh: {fileID: 4300002, guid: d527c11fb631cbe45827d945060ec94c, type: 3}
 --- !u!114 &11475544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,9 +110,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
+  m_Radius: 3
+  m_Height: 13.5
+  m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19892390
 ParticleSystem:

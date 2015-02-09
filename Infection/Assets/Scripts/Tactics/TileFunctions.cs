@@ -5,6 +5,7 @@ public class TileFunctions : Lerpable
 {
     [HideInInspector]
     public bool isInfected = false;
+    public Color infectedColor = Color.yellow;
 
     public bool humanSpawn = false;
     public bool invaderSpawn = false;
@@ -29,7 +30,7 @@ public class TileFunctions : Lerpable
     public void InfectTile()
     {
         isInfected = true;
-        SetColorCurrent(Color.red);
+        SetColorCurrent(infectedColor);
         managerFunctions.numCleanTiles--;
     }
 

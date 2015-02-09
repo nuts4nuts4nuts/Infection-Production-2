@@ -86,7 +86,7 @@ GameObject:
   - 65: {fileID: 24674719}
   - 23: {fileID: 24674718}
   - 114: {fileID: 24674721}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_08
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 2061271765}
   m_GameObject: {fileID: 24674716}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 2.00999999, y: 2.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -163,6 +163,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1001 &29027308
@@ -198,7 +199,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -258,7 +259,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -318,7 +319,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -378,7 +379,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -438,7 +439,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -498,7 +499,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -537,7 +538,7 @@ GameObject:
   - 65: {fileID: 183355656}
   - 23: {fileID: 183355655}
   - 114: {fileID: 183355658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_13
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -550,7 +551,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 29027308}
   m_GameObject: {fileID: 183355653}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: 1.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -614,6 +615,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &185237448
@@ -649,7 +651,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -688,7 +690,7 @@ GameObject:
   - 65: {fileID: 256188059}
   - 23: {fileID: 256188058}
   - 114: {fileID: 256188061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_32
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -701,7 +703,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 882063991}
   m_GameObject: {fileID: 256188056}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 3.00999999, y: -.00999999978, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -765,6 +767,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &261607339
@@ -779,7 +782,7 @@ GameObject:
   - 65: {fileID: 261607342}
   - 23: {fileID: 261607341}
   - 114: {fileID: 261607344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_52
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -792,7 +795,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1152932013}
   m_GameObject: {fileID: 261607339}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: -3.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -856,6 +859,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &270955369
@@ -891,7 +895,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -930,7 +934,7 @@ GameObject:
   - 65: {fileID: 280957449}
   - 23: {fileID: 280957448}
   - 114: {fileID: 280957451}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_23
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -943,7 +947,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1595323711}
   m_GameObject: {fileID: 280957446}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 3.00999999, y: .99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -1007,6 +1011,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &286575251
@@ -1042,7 +1047,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -1138,7 +1143,7 @@ Transform:
   m_LocalScale: {x: 1.75, y: 1, z: 2.3499999}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1001 &299299619
 Prefab:
   m_ObjectHideFlags: 0
@@ -1172,7 +1177,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -1199,6 +1204,69 @@ Prefab:
   m_RootGameObject: {fileID: 483711204}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &308883231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 308883233}
+  - 108: {fileID: 308883232}
+  m_Layer: 0
+  m_Name: NeutroLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &308883232
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 308883231}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: .998478711, g: .889705896, b: 1, a: 1}
+  m_Intensity: .300000012
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967039
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &308883233
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 308883231}
+  m_LocalRotation: {x: .727491796, y: -.00098300667, z: .00548468577, w: -.686093807}
+  m_LocalPosition: {x: 2.5999999, y: .75, z: 25.0200005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1235162636}
+  m_RootOrder: 3
 --- !u!1 &313154844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,7 +1299,9 @@ MonoBehaviour:
   currentState: 0
   numCleanTiles: 0
   infectedTileThreshold: 12
-  piecesPerSide: 2
+  totalPieces: 2
+  pieceHighlight: {r: .787271857, g: .620404422, b: .992647052, a: 1}
+  tileHighlight: {r: 0, g: 1, b: .751724005, a: 1}
 --- !u!4 &313154846
 Transform:
   m_ObjectHideFlags: 0
@@ -1302,7 +1372,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -1341,7 +1411,7 @@ GameObject:
   - 65: {fileID: 340668974}
   - 23: {fileID: 340668973}
   - 114: {fileID: 340668976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_26
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -1354,7 +1424,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 793795502}
   m_GameObject: {fileID: 340668971}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -2.99000001, y: -.00999999978, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -1418,6 +1488,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &434924515
@@ -1432,7 +1503,7 @@ GameObject:
   - 65: {fileID: 434924518}
   - 23: {fileID: 434924517}
   - 114: {fileID: 434924520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_57
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -1445,7 +1516,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1311140163}
   m_GameObject: {fileID: 434924515}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: -4.01000023, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -1509,6 +1580,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1 &483711204
@@ -1523,7 +1595,7 @@ GameObject:
   - 65: {fileID: 483711207}
   - 23: {fileID: 483711206}
   - 114: {fileID: 483711209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_35
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -1536,7 +1608,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 299299619}
   m_GameObject: {fileID: 483711204}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -2.99000001, y: -1.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -1600,6 +1672,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &484275415
@@ -1635,7 +1708,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -1686,7 +1759,7 @@ GameObject:
   - 65: {fileID: 494106492}
   - 23: {fileID: 494106491}
   - 114: {fileID: 494106494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_28
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -1699,7 +1772,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1160534149}
   m_GameObject: {fileID: 494106489}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: -.00999999978, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -1763,6 +1836,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &518098412
@@ -1777,7 +1851,7 @@ GameObject:
   - 65: {fileID: 518098415}
   - 23: {fileID: 518098414}
   - 114: {fileID: 518098417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_31
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -1790,7 +1864,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1529837839}
   m_GameObject: {fileID: 518098412}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 2.00999999, y: -.00999999978, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -1854,6 +1928,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &522286240
@@ -1889,7 +1964,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -1928,7 +2003,7 @@ GameObject:
   - 65: {fileID: 531361338}
   - 23: {fileID: 531361337}
   - 114: {fileID: 531361340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_07
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -1941,7 +2016,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1218174370}
   m_GameObject: {fileID: 531361335}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: 2.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -2005,6 +2080,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &538617285
@@ -2082,7 +2158,7 @@ Transform:
   m_Children:
   - {fileID: 1422706452}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1001 &562422196
 Prefab:
   m_ObjectHideFlags: 0
@@ -2116,7 +2192,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -2155,7 +2231,7 @@ GameObject:
   - 65: {fileID: 568621833}
   - 23: {fileID: 568621832}
   - 114: {fileID: 568621835}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_01
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -2168,7 +2244,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 641626362}
   m_GameObject: {fileID: 568621830}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: 3.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -2232,6 +2308,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1 &574040785
@@ -2306,7 +2383,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &582772762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,7 +2396,7 @@ GameObject:
   - 65: {fileID: 582772765}
   - 23: {fileID: 582772764}
   - 114: {fileID: 582772767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_10
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -2332,7 +2409,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 522286240}
   m_GameObject: {fileID: 582772762}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -1.99000001, y: 1.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -2396,6 +2473,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &584199585
@@ -2431,7 +2509,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -2466,6 +2544,69 @@ Prefab:
   m_RootGameObject: {fileID: 696693603}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &600588283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 600588285}
+  - 108: {fileID: 600588284}
+  m_Layer: 0
+  m_Name: RedCellHighlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &600588284
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 600588283}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: .772058845, g: .877383411, b: 1, a: 1}
+  m_Intensity: .699999988
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &600588285
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 600588283}
+  m_LocalRotation: {x: .389705569, y: .515472412, z: .49955532, w: .576942205}
+  m_LocalPosition: {x: -7.25562668, y: 2.37882662, z: 20.0976562}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1235162636}
+  m_RootOrder: 2
 --- !u!1 &635682410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,7 +2706,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -2625,7 +2766,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -2668,7 +2809,7 @@ GameObject:
   - 65: {fileID: 696693606}
   - 23: {fileID: 696693605}
   - 114: {fileID: 696693608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_54
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -2681,7 +2822,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 584199585}
   m_GameObject: {fileID: 696693603}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 2.00999999, y: -3.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -2745,6 +2886,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1 &704288142
@@ -2875,7 +3017,7 @@ GameObject:
   - 65: {fileID: 733638849}
   - 23: {fileID: 733638848}
   - 114: {fileID: 733638851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_06
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -2888,7 +3030,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1448032148}
   m_GameObject: {fileID: 733638846}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: 2.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -2952,6 +3094,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &750211283
@@ -2966,7 +3109,7 @@ GameObject:
   - 65: {fileID: 750211286}
   - 23: {fileID: 750211285}
   - 114: {fileID: 750211288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_53
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -2979,7 +3122,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1011005617}
   m_GameObject: {fileID: 750211283}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: -3.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -3043,8 +3186,72 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
+--- !u!1 &775109866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 775109867}
+  - 108: {fileID: 775109868}
+  m_Layer: 0
+  m_Name: OtherHighlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &775109867
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 775109866}
+  m_LocalRotation: {x: .376304209, y: .87175858, z: .241796196, w: .199916825}
+  m_LocalPosition: {x: -7.25562716, y: 2.3788271, z: 20.0976562}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1235162636}
+  m_RootOrder: 4
+--- !u!108 &775109868
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 775109866}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: .772058845, g: .877383411, b: 1, a: 1}
+  m_Intensity: .699999988
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967039
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &784431504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,7 +3281,7 @@ Transform:
   - {fileID: 1795375838}
   - {fileID: 842446104}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &793795502
 Prefab:
   m_ObjectHideFlags: 0
@@ -3108,7 +3315,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -3147,7 +3354,7 @@ GameObject:
   - 65: {fileID: 799085803}
   - 23: {fileID: 799085802}
   - 114: {fileID: 799085805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_44
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -3160,7 +3367,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 169989283}
   m_GameObject: {fileID: 799085800}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -1.99000001, y: -2.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -3224,6 +3431,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &815462826
@@ -3259,7 +3467,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -3298,7 +3506,7 @@ GameObject:
   - 65: {fileID: 824292343}
   - 23: {fileID: 824292342}
   - 114: {fileID: 824292345}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_55
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -3311,7 +3519,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1980274788}
   m_GameObject: {fileID: 824292340}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: -4.01000023, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -3375,6 +3583,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1 &827251989
@@ -3389,7 +3598,7 @@ GameObject:
   - 65: {fileID: 827251992}
   - 23: {fileID: 827251991}
   - 114: {fileID: 827251994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_38
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -3402,7 +3611,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 815462826}
   m_GameObject: {fileID: 827251989}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: -1.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -3466,6 +3675,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &842446103
@@ -3507,6 +3717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beea891d8c0be3143a5af4bd42bb4e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: .227941155, g: 0, b: 0, a: 1}
   humanTiles:
   - {fileID: 824292340}
   - {fileID: 920945070}
@@ -3532,7 +3743,7 @@ GameObject:
   - 65: {fileID: 860333338}
   - 23: {fileID: 860333337}
   - 114: {fileID: 860333340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_51
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -3545,7 +3756,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1738987112}
   m_GameObject: {fileID: 860333335}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: -3.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -3609,6 +3820,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &882063991
@@ -3644,7 +3856,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -3683,7 +3895,7 @@ GameObject:
   - 65: {fileID: 920945073}
   - 23: {fileID: 920945072}
   - 114: {fileID: 920945075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_56
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -3696,7 +3908,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 484275415}
   m_GameObject: {fileID: 920945070}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: -4.01000023, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -3760,6 +3972,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1001 &938081633
@@ -3795,7 +4008,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -3855,7 +4068,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -3960,7 +4173,7 @@ GameObject:
   - 65: {fileID: 965826441}
   - 23: {fileID: 965826440}
   - 114: {fileID: 965826443}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_50
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -3973,7 +4186,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1224073613}
   m_GameObject: {fileID: 965826438}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -1.99000001, y: -3.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -4037,6 +4250,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 1
   invaderSpawn: 0
 --- !u!1 &988772541
@@ -4096,12 +4310,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 988772541}
-  m_LocalRotation: {x: 0, y: -.358935416, z: 0, w: .933362424}
+  m_LocalRotation: {x: -.154830441, y: .331070215, z: .0475060903, w: -.929603815}
   m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1235162636}
+  m_RootOrder: 0
 --- !u!1 &1003580922
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4328,7 @@ GameObject:
   - 65: {fileID: 1003580925}
   - 23: {fileID: 1003580924}
   - 114: {fileID: 1003580927}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_48
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -4127,7 +4341,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1699285034}
   m_GameObject: {fileID: 1003580922}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 2.00999999, y: -2.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -4191,6 +4405,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1011005617
@@ -4226,7 +4441,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -4265,7 +4480,7 @@ GameObject:
   - 65: {fileID: 1015140768}
   - 23: {fileID: 1015140767}
   - 114: {fileID: 1015140770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_36
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -4278,7 +4493,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1264806501}
   m_GameObject: {fileID: 1015140765}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -1.99000001, y: -1.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -4342,6 +4557,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1061887031
@@ -4356,7 +4572,7 @@ GameObject:
   - 65: {fileID: 1061887034}
   - 23: {fileID: 1061887033}
   - 114: {fileID: 1061887036}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_09
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -4369,7 +4585,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 132927820}
   m_GameObject: {fileID: 1061887031}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -2.99000001, y: 1.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -4433,6 +4649,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1102484286
@@ -4468,7 +4685,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -4495,6 +4712,69 @@ Prefab:
   m_RootGameObject: {fileID: 1956344678}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1102976161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1102976163}
+  - 108: {fileID: 1102976162}
+  m_Layer: 0
+  m_Name: RedCellLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1102976162
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102976161}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: .5, b: .5, a: 1}
+  m_Intensity: .300000012
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &1102976163
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102976161}
+  m_LocalRotation: {x: .927402258, y: -.00291303196, z: .00474996911, w: -.374024093}
+  m_LocalPosition: {x: 2.5999999, y: .75, z: 25.0200005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1235162636}
+  m_RootOrder: 1
 --- !u!1 &1116913739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4527,7 +4807,7 @@ RectTransform:
   - {fileID: 1247094667}
   - {fileID: 1915452842}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4599,7 +4879,7 @@ GameObject:
   - 65: {fileID: 1139562453}
   - 23: {fileID: 1139562452}
   - 114: {fileID: 1139562455}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_22
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -4612,7 +4892,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 2000560289}
   m_GameObject: {fileID: 1139562450}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 2.00999999, y: .99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -4676,6 +4956,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1152932013
@@ -4711,7 +4992,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -4771,7 +5052,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -4835,7 +5116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -4895,7 +5176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -4955,7 +5236,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5023,7 +5304,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5083,7 +5364,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5114,6 +5395,38 @@ Prefab:
   m_RootGameObject: {fileID: 2070753357}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1235162635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1235162636}
+  m_Layer: 0
+  m_Name: Lights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1235162636
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1235162635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 988772543}
+  - {fileID: 1102976163}
+  - {fileID: 600588285}
+  - {fileID: 308883233}
+  - {fileID: 775109867}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1247094666
 GameObject:
   m_ObjectHideFlags: 0
@@ -5242,7 +5555,7 @@ GameObject:
   - 65: {fileID: 1260961972}
   - 23: {fileID: 1260961971}
   - 114: {fileID: 1260961974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_11
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -5255,7 +5568,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 163700471}
   m_GameObject: {fileID: 1260961969}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: 1.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -5319,6 +5632,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1264806501
@@ -5354,7 +5668,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5393,7 +5707,7 @@ GameObject:
   - 65: {fileID: 1286145762}
   - 23: {fileID: 1286145761}
   - 114: {fileID: 1286145764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_05
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -5406,7 +5720,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1332546985}
   m_GameObject: {fileID: 1286145759}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: 2.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -5470,6 +5784,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1308581749
@@ -5484,7 +5799,7 @@ GameObject:
   - 65: {fileID: 1308581752}
   - 23: {fileID: 1308581751}
   - 114: {fileID: 1308581754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_46
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -5497,7 +5812,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 270955369}
   m_GameObject: {fileID: 1308581749}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: -2.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -5561,6 +5876,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1311140163
@@ -5596,7 +5912,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5664,7 +5980,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5724,7 +6040,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5784,7 +6100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5844,7 +6160,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -5887,7 +6203,7 @@ GameObject:
   - 65: {fileID: 1375397753}
   - 23: {fileID: 1375397752}
   - 114: {fileID: 1375397755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_47
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -5900,7 +6216,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 952297414}
   m_GameObject: {fileID: 1375397750}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: -2.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -5964,6 +6280,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1393365683
@@ -5978,7 +6295,7 @@ GameObject:
   - 65: {fileID: 1393365686}
   - 23: {fileID: 1393365685}
   - 114: {fileID: 1393365688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_45
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -5991,7 +6308,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 938081633}
   m_GameObject: {fileID: 1393365683}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: -2.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -6055,6 +6372,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1397716675
@@ -6069,7 +6387,7 @@ GameObject:
   - 65: {fileID: 1397716678}
   - 23: {fileID: 1397716677}
   - 114: {fileID: 1397716680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_12
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -6082,7 +6400,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 639479351}
   m_GameObject: {fileID: 1397716675}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: 1.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -6146,6 +6464,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1422706451
@@ -6274,7 +6593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -6334,7 +6653,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -6394,7 +6713,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -6499,7 +6818,7 @@ GameObject:
   - 65: {fileID: 1590995042}
   - 23: {fileID: 1590995041}
   - 114: {fileID: 1590995044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_17
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -6512,7 +6831,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 562422196}
   m_GameObject: {fileID: 1590995039}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -2.99000001, y: .99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -6576,6 +6895,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1595323711
@@ -6611,7 +6931,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -6755,7 +7075,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -6815,7 +7135,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -6874,7 +7194,7 @@ GameObject:
   - 65: {fileID: 1668818926}
   - 23: {fileID: 1668818925}
   - 114: {fileID: 1668818928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_20
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -6887,7 +7207,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 92551927}
   m_GameObject: {fileID: 1668818923}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: .99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -6951,6 +7271,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1697567869
@@ -6965,7 +7286,7 @@ GameObject:
   - 65: {fileID: 1697567872}
   - 23: {fileID: 1697567871}
   - 114: {fileID: 1697567874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_03
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -6978,7 +7299,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1665901170}
   m_GameObject: {fileID: 1697567869}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: 3.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7042,6 +7363,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1001 &1699285034
@@ -7077,7 +7399,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -7137,7 +7459,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -7176,7 +7498,7 @@ GameObject:
   - 65: {fileID: 1761302853}
   - 23: {fileID: 1761302852}
   - 114: {fileID: 1761302855}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_30
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7189,7 +7511,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1217794707}
   m_GameObject: {fileID: 1761302850}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: -.00999999978, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7253,6 +7575,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1771840049
@@ -7267,7 +7590,7 @@ GameObject:
   - 65: {fileID: 1771840052}
   - 23: {fileID: 1771840051}
   - 114: {fileID: 1771840054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_19
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7280,7 +7603,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 37059104}
   m_GameObject: {fileID: 1771840049}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: .99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7344,6 +7667,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1793196436
@@ -7358,7 +7682,7 @@ GameObject:
   - 65: {fileID: 1793196439}
   - 23: {fileID: 1793196438}
   - 114: {fileID: 1793196441}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_29
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7371,7 +7695,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1633387995}
   m_GameObject: {fileID: 1793196436}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: -.00999999978, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7435,6 +7759,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1795375837
@@ -7497,7 +7822,7 @@ GameObject:
   - 65: {fileID: 1800832552}
   - 23: {fileID: 1800832551}
   - 114: {fileID: 1800832554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_15
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7510,7 +7835,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1924533740}
   m_GameObject: {fileID: 1800832549}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 3.00999999, y: 1.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7574,6 +7899,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1804920021
@@ -7588,7 +7914,7 @@ GameObject:
   - 65: {fileID: 1804920024}
   - 23: {fileID: 1804920023}
   - 114: {fileID: 1804920026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_37
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7601,7 +7927,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1361485149}
   m_GameObject: {fileID: 1804920021}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -.99000001, y: -1.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7665,6 +7991,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1820958620
@@ -7679,7 +8006,7 @@ GameObject:
   - 65: {fileID: 1820958623}
   - 23: {fileID: 1820958622}
   - 114: {fileID: 1820958625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_18
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7692,7 +8019,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1225922851}
   m_GameObject: {fileID: 1820958620}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -1.99000001, y: .99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7756,6 +8083,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1821788919
@@ -7770,7 +8098,7 @@ GameObject:
   - 65: {fileID: 1821788922}
   - 23: {fileID: 1821788921}
   - 114: {fileID: 1821788924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_49
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7783,7 +8111,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1360029480}
   m_GameObject: {fileID: 1821788919}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 3.00999999, y: -2.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7847,6 +8175,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1834655329
@@ -7861,7 +8190,7 @@ GameObject:
   - 65: {fileID: 1834655332}
   - 23: {fileID: 1834655331}
   - 114: {fileID: 1834655334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_39
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7874,7 +8203,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 185237448}
   m_GameObject: {fileID: 1834655329}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: -1.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -7938,6 +8267,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1859615040
@@ -7952,7 +8282,7 @@ GameObject:
   - 65: {fileID: 1859615043}
   - 23: {fileID: 1859615042}
   - 114: {fileID: 1859615045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_40
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -7965,7 +8295,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 332376318}
   m_GameObject: {fileID: 1859615040}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 2.00999999, y: -1.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -8029,6 +8359,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1906983998
@@ -8043,7 +8374,7 @@ GameObject:
   - 65: {fileID: 1906984001}
   - 23: {fileID: 1906984000}
   - 114: {fileID: 1906984003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_21
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -8056,7 +8387,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 286575251}
   m_GameObject: {fileID: 1906983998}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 1.00999999, y: .99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -8120,6 +8451,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &1915452841
@@ -8271,7 +8603,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -8331,7 +8663,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -8391,7 +8723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -8430,7 +8762,7 @@ GameObject:
   - 65: {fileID: 1956344681}
   - 23: {fileID: 1956344680}
   - 114: {fileID: 1956344683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_43
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -8443,7 +8775,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1102484286}
   m_GameObject: {fileID: 1956344678}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -2.99000001, y: -2.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -8507,6 +8839,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1001 &1980274788
@@ -8542,7 +8875,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -8610,7 +8943,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -8649,7 +8982,7 @@ GameObject:
   - 65: {fileID: 2033155475}
   - 23: {fileID: 2033155474}
   - 114: {fileID: 2033155477}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_14
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -8662,7 +8995,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1467603016}
   m_GameObject: {fileID: 2033155472}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 2.00999999, y: 1.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -8726,6 +9059,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &2045670040
@@ -8740,7 +9074,7 @@ GameObject:
   - 65: {fileID: 2045670043}
   - 23: {fileID: 2045670042}
   - 114: {fileID: 2045670045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_41
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -8753,7 +9087,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1954501764}
   m_GameObject: {fileID: 2045670040}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 3.00999999, y: -1.00999999, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -8817,6 +9151,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0
 --- !u!1 &2054823459
@@ -8831,7 +9166,7 @@ GameObject:
   - 65: {fileID: 2054823462}
   - 23: {fileID: 2054823461}
   - 114: {fileID: 2054823464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_02
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -8844,7 +9179,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1362288071}
   m_GameObject: {fileID: 2054823459}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: .00999999978, y: 3.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -8908,6 +9243,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1001 &2061271765
@@ -8943,7 +9279,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
       propertyPath: m_RootOrder
@@ -8986,7 +9322,7 @@ GameObject:
   - 65: {fileID: 2070753360}
   - 23: {fileID: 2070753359}
   - 114: {fileID: 2070753362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_04
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -8999,7 +9335,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1229981450}
   m_GameObject: {fileID: 2070753357}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -1.99000001, y: 2.99000001, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -9063,6 +9399,7 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 1
 --- !u!1 &2120006982
@@ -9077,7 +9414,7 @@ GameObject:
   - 65: {fileID: 2120006985}
   - 23: {fileID: 2120006984}
   - 114: {fileID: 2120006987}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile_27
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -9090,7 +9427,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493498, guid: 8bd71b8921a5e0a4d8dc41d52d8cc45e, type: 2}
   m_PrefabInternal: {fileID: 1926972129}
   m_GameObject: {fileID: 2120006982}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: -1.99000001, y: -.00999999978, z: 0}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
   m_Children: []
@@ -9154,5 +9491,6 @@ MonoBehaviour:
   secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
   isInfected: 0
+  infectedColor: {r: 1, g: .921568632, b: .0156862754, a: 1}
   humanSpawn: 0
   invaderSpawn: 0

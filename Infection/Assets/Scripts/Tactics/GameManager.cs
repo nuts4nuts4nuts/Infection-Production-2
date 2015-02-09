@@ -16,7 +16,10 @@ public class GameManager : MonoBehaviour {
 
     public int numCleanTiles = 0;
     public int infectedTileThreshold = 12;
-    public int piecesPerSide = 4;
+    public int totalPieces = 4;
+
+    public Color pieceHighlight = Color.magenta;
+    public Color tileHighlight = Color.black;
 
     //reference to UIManager script on GameManager
     private UIManager uiManager;
@@ -24,7 +27,7 @@ public class GameManager : MonoBehaviour {
     private GameObject selectedPiece;
     private List<GameObject> possibleMovementTiles;
 
-    private int currentPlayerIndex = 1;
+    private int currentPlayerIndex = 0;
     private string[] currentPlayers;
     private int numPlayers = 2;
 
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour {
         uiManager.Init();
 
         snakeDraftCounter = new int[2];
-        currentDraftTeam = CardFunctions.Team.invader;
+        currentDraftTeam = CardFunctions.Team.human;
 
         EnterDraftMode();
 	}
@@ -193,7 +196,7 @@ public class GameManager : MonoBehaviour {
     private void InitialPlacePiece()
     {
         Vector3 centerPos = viableTiles.centerTile.transform.position;
-        Vector3 newPos = new Vector3(centerPos.x, centerPos.y, centerPos.z - 1);
+        Vector3 newPos = new Vector3(centerPos.x, centerPos.y, centerPos.z - 0.5f);
         PieceFunctions pf = LoadPiece(selectedCardFunc.associatedPiece, newPos);
         SelectPiece(pf.gameObject, Camera.main);
 
@@ -262,7 +265,7 @@ public class GameManager : MonoBehaviour {
             selectedPiece = newPiece;
 
             //Highlight that joint!
-            selectedPiece.renderer.material.color = Color.magenta;
+            selectedPiece.renderer.material.color = pieceHighlight;
             HighlightMovementOptions(GeneratePossibleMoves(selectedPiece, playerCam));
         }
         else if( ((PieceFunctions)newPiece.GetComponent(typeof(PieceFunctions))).team == PieceFunctions.Team.invader)
@@ -318,7 +321,7 @@ public class GameManager : MonoBehaviour {
         PieceFunctions pf = ((PieceFunctions)selectedPiece.GetComponent(typeof(PieceFunctions)));
         Vector3 newPos = new Vector3(tile.transform.position.x, tile.transform.position.y, selectedPiece.transform.position.z);
 
-        pf.LerpTo(newPos, PieceFunctions.LerpSpeed.faster);
+        pf.LerpTo(newPos, PieceFunctions.LerpSpeed.fast);
         pf.ExecWhenFinishedLerp(TestInfectionLevel);
         pf.JustMoved();
 
@@ -364,7 +367,7 @@ public class GameManager : MonoBehaviour {
         }
 
         //TODO: make more flexible
-        if(snakeDraftCounter[0] + snakeDraftCounter[1] == piecesPerSide)
+        if(snakeDraftCounter[0] + snakeDraftCounter[1] == totalPieces)
         {
             selectedCardFunc.ExecWhenFinishedLerp(EnterTacticsMode);
         }
@@ -402,7 +405,7 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject obj in tiles)
         {
             Lerpable objFunc = (Lerpable)obj.GetComponent(typeof(Lerpable));
-            objFunc.SetColorTemp(Color.black);
+            objFunc.SetColorTemp(tileHighlight);
 
             if (currentState == GameState.tactics)
             {
