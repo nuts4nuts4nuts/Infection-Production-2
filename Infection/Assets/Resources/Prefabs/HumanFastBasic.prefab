@@ -223,7 +223,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 5
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -256,7 +256,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 0
+      scalar: .100000001
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -383,7 +383,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .200000003
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -416,7 +416,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startRotation:
-      scalar: .0174532924
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -448,8 +448,8 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    gravityModifier: 2
-    inheritVelocity: 0
+    gravityModifier: 1
+    inheritVelocity: 1
     maxNumParticles: 1000
   ShapeModule:
     serializedVersion: 2
@@ -468,7 +468,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 10
+      scalar: 30
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -547,7 +547,7 @@ ParticleSystem:
   RotationModule:
     enabled: 0
     curve:
-      scalar: .785398185
+      scalar: .785398126
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -785,7 +785,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     z:
-      scalar: -7.5
+      scalar: -4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1100,7 +1100,7 @@ ParticleSystem:
   RotationBySpeedModule:
     enabled: 0
     curve:
-      scalar: .785398185
+      scalar: .785398126
       maxCurve:
         serializedVersion: 2
         m_Curve:
