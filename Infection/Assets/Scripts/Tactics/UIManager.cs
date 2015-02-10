@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour {
 
     Vector3 endTurnVector3 = new Vector3(3.5f, 0.0f, 0.0f);
     Vector3 pauseVector3 = new Vector3(-3.5f, 0.0f, 0.0f);
-    Vector3 infectionBarVector3 = new Vector3(-3.5f, 3.0f, 0.0f);
+    Vector3 infectionBarVector3 = new Vector3(-3.0f, 3.5f, 0.0f);
 
     public void Init()
     {
