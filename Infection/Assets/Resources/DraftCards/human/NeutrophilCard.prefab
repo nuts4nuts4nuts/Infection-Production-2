@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2355926}
   - 114: {fileID: 11455926}
   m_Layer: 0
-  m_Name: HumanFastBasicCard
+  m_Name: NeutrophilCard
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,8 +82,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalPosition: {x: -2, y: 0, z: 0}
+  secondaryPosition: {x: 0, y: 0, z: 0}
   isSelected: 0
-  associatedPiece: HumanFastBasic
+  associatedPiece: Neutrophil
   team: 0
   isDrafted: 0
 --- !u!1001 &100100000
