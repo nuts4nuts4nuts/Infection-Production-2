@@ -1936,7 +1936,7 @@ MonoBehaviour:
   currentState: 0
   numCleanTiles: 0
   infectedTileThreshold: 12
-  totalPieces: 2
+  totalPieces: 4
   pieceHighlight: {r: .787271857, g: .620404422, b: .992647052, a: 1}
   tileHighlight: {r: 0, g: 1, b: .751724005, a: 1}
 --- !u!4 &313154846

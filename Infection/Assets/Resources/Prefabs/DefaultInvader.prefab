@@ -12,12 +12,27 @@ GameObject:
   - 136: {fileID: 13636970}
   - 23: {fileID: 2336970}
   - 114: {fileID: 11446498}
-  - 199: {fileID: 19949764}
-  - 198: {fileID: 19849764}
   - 114: {fileID: 11456614}
   m_Layer: 0
   m_Name: DefaultInvader
   m_TagString: InvaderPiece
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &142962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 442962}
+  - 198: {fileID: 19842962}
+  - 199: {fileID: 19942962}
+  m_Layer: 0
+  m_Name: AvailableEffect
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,10 +44,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136970}
   m_LocalRotation: {x: -.5, y: .5, z: -.5, w: .5}
-  m_LocalPosition: {x: -9.97059155, y: .873441398, z: 8.25823879}
+  m_LocalPosition: {x: 18.375, y: 4.79799986, z: -38.3260002}
   m_LocalScale: {x: .0500000007, y: .0500000007, z: .0500000007}
-  m_Children: []
+  m_Children:
+  - {fileID: 442962}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &442962
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142962}
+  m_LocalRotation: {x: .5, y: .5, z: .5, w: -.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.19999993, y: 1.19999993, z: 1.19999993}
+  m_Children: []
+  m_Father: {fileID: 436970}
   m_RootOrder: 0
 --- !u!23 &2336970
 Renderer:
@@ -82,7 +110,7 @@ MonoBehaviour:
   - {x: -1, y: 0}
   ySign: -1
   cooldown: 1
-  incubateTime: 1
+  incubateTime: 2
   isIncubating: 0
   turnsTillMove: 0
   team: 1
@@ -110,12 +138,12 @@ CapsuleCollider:
   m_Height: 13.5
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
---- !u!198 &19849764
+--- !u!198 &19842962
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136970}
+  m_GameObject: {fileID: 142962}
   lengthInSec: 5
   startDelay: 0
   speed: 1
@@ -287,7 +315,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: .150000006
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -352,14 +380,14 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    gravityModifier: 1
+    gravityModifier: 0
     inheritVelocity: 1
     maxNumParticles: 1000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 0
-    radius: 1
+    type: 7
+    radius: 6
     angle: 25
     length: 5
     boxX: 1
@@ -372,7 +400,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 30
+      scalar: 200
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -484,18 +512,18 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4278387459
+          rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 4278190080
+          rgba: 3736516351
         key2:
           serializedVersion: 2
-          rgba: 0
+          rgba: 13092807
         key3:
           serializedVersion: 2
           rgba: 0
@@ -512,8 +540,8 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 33153
-        ctime1: 44911
-        ctime2: 49730
+        ctime1: 54163
+        ctime2: 63993
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -621,7 +649,7 @@ ParticleSystem:
     cycles: 1
     randomRow: 1
   VelocityModule:
-    enabled: 1
+    enabled: 0
     x:
       scalar: 0
       maxCurve:
@@ -1162,12 +1190,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19949764
+--- !u!199 &19942962
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136970}
+  m_GameObject: {fileID: 142962}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

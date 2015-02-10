@@ -186,6 +186,7 @@ public class GameManager : MonoBehaviour {
 
         //Go to next player
         currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
+        uiManager.UpdateTurnButtonColor(currentPlayerIndex);
 
         //Reactivate new player's pieces
         GameObject[] pieces = GetPlayerPieces(currentPlayers[currentPlayerIndex]);
