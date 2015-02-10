@@ -11,13 +11,28 @@ GameObject:
   - 33: {fileID: 3337850}
   - 23: {fileID: 2337850}
   - 114: {fileID: 11437850}
-  - 199: {fileID: 19937850}
-  - 198: {fileID: 19837850}
   - 114: {fileID: 11448604}
   - 135: {fileID: 13536600}
   m_Layer: 0
   m_Name: HumanBishop
   m_TagString: HumanPiece
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &161008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 461008}
+  - 198: {fileID: 19861008}
+  - 199: {fileID: 19961008}
+  m_Layer: 0
+  m_Name: AvailableEffect
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,10 +44,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137850}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -12.5, y: -1.67999995, z: .540000021}
+  m_LocalPosition: {x: 20.9630585, y: 2.15081644, z: -31.5440178}
   m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
-  m_Children: []
+  m_Children:
+  - {fileID: 461008}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &461008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161008}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 437850}
   m_RootOrder: 0
 --- !u!23 &2337850
 Renderer:
@@ -125,12 +153,12 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5.69999981
   m_Center: {x: 0, y: 0, z: 0}
---- !u!198 &19837850
+--- !u!198 &19861008
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137850}
+  m_GameObject: {fileID: 161008}
   lengthInSec: 5
   startDelay: 0
   speed: 1
@@ -302,7 +330,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: .150000006
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -367,14 +395,14 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    gravityModifier: 1
+    gravityModifier: 0
     inheritVelocity: 1
     maxNumParticles: 1000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 0
-    radius: 1
+    type: 7
+    radius: 6
     angle: 25
     length: 5
     boxX: 1
@@ -387,7 +415,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 30
+      scalar: 200
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -499,18 +527,18 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4278387459
+          rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 4278190080
+          rgba: 3734410932
         key2:
           serializedVersion: 2
-          rgba: 0
+          rgba: 8158332
         key3:
           serializedVersion: 2
           rgba: 0
@@ -527,8 +555,8 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 33153
-        ctime1: 44911
-        ctime2: 49730
+        ctime1: 54163
+        ctime2: 63993
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -636,7 +664,7 @@ ParticleSystem:
     cycles: 1
     randomRow: 1
   VelocityModule:
-    enabled: 1
+    enabled: 0
     x:
       scalar: 0
       maxCurve:
@@ -1177,12 +1205,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19937850
+--- !u!199 &19961008
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137850}
+  m_GameObject: {fileID: 161008}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

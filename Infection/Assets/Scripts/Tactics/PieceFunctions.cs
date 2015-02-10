@@ -49,15 +49,13 @@ public class PieceFunctions : Lerpable
         if (tag == "InvaderPiece")
         {
             team = Team.invader;
-
-            InfectTile();
         }
         else if(tag == "HumanPiece")
         {
             team = Team.human;
         }
 
-        pSystem = (ParticleSystem)gameObject.GetComponent(typeof(ParticleSystem));
+        pSystem = (ParticleSystem)gameObject.GetComponentInChildren(typeof(ParticleSystem));
     }
 
 	// Update is called once per frame
@@ -69,14 +67,14 @@ public class PieceFunctions : Lerpable
             transform.position = Vector3.Lerp(transform.position, lerpTarget, lerpSpeed * Time.deltaTime);
             if (Vector3.SqrMagnitude(transform.position - lerpTarget) < 0.001f)
             {
+                isLerping = false;
+                transform.position = lerpTarget;
+                FinishedLerping();
+
                 if (team == Team.invader)
                 {
                     InfectTile();
                 }
-
-                isLerping = false;
-                transform.position = lerpTarget;
-                FinishedLerping();
             }
         }
     }
@@ -113,14 +111,23 @@ public class PieceFunctions : Lerpable
     public void JustMoved()
     {
         turnsTillMove = cooldown;
+        SetUnavailable();
+    }
 
+    public void SetAvailable()
+    {
+        pSystem.enableEmission = true;
+    }
+
+    public void SetUnavailable()
+    {
         pSystem.enableEmission = false;
     }
 
     public void StartIncubate()
     {
         turnsTillMove = incubateTime;
-        pSystem.enableEmission = false;
+        SetUnavailable();
         isIncubating = true;
     }
 
@@ -130,7 +137,7 @@ public class PieceFunctions : Lerpable
 
         if(turnsTillMove <= 0)
         {
-            pSystem.enableEmission = true;
+            SetAvailable();
         }
 
         return turnsTillMove;

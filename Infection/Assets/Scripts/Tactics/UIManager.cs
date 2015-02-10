@@ -152,6 +152,7 @@ public class UIManager : MonoBehaviour {
         for (; i < pieces.Length; i++)
         {
             PieceFunctions pf = pieces[i].GetComponent<PieceFunctions>();
+            pf.SetUnavailable();
 
             if (pf.turnsTillMove > 1)
             {
@@ -164,7 +165,6 @@ public class UIManager : MonoBehaviour {
             {
                 CooldownList[i].transform.position = offScreenVector3;
                 CooldownList[i].GetComponentInChildren<Text>().text = "0";
-
             }
         }
 
