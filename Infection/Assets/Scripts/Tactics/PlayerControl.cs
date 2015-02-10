@@ -36,13 +36,7 @@ public class PlayerControl : MonoBehaviour {
                 PieceFunctions pf = (PieceFunctions)hitObj.GetComponent(typeof(PieceFunctions));
                 CardFunctions cf = (CardFunctions)hitObj.GetComponent(typeof(CardFunctions));
                 
-                if(hitObj.tag == "EndTurn")
-                {
-                    EndFunctions ef = (EndFunctions)hitObj.GetComponent(typeof(EndFunctions));
-
-                    gameManager.HandleEndTurn(ef, playerCam);
-                }
-                else if(pf != null)
+                if(pf != null)
                 {
                     gameManager.HandleSelectPiece(hitObj, pf, playerCam);
                 }

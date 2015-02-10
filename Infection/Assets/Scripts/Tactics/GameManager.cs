@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     }
     public GameState currentState = GameState.draft;
 
+    private int numTiles = 51;
     public int numCleanTiles = 0;
     public int infectedTileThreshold = 12;
     public int totalPieces = 4;
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour {
         currentState = GameState.tactics;
 
         viableTiles.DisinfectCenterTile();
+        uiManager.EnableTacticsUi(numCleanTiles, numTiles);
 
         humanCardHolder.LerpToSecondaryPos();
         invaderCardHolder.LerpToSecondaryPos();
@@ -105,49 +107,6 @@ public class GameManager : MonoBehaviour {
         PieceFunctions pf = (PieceFunctions)piece.GetComponent(typeof(PieceFunctions));
 
         return pf;
-    }
-
-    public void HandleEndTurn(EndFunctions ef, Camera cam)
-    { 
-        //Go to next player
-        currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-
-        if (currentPlayerIndex == 0)
-        {
-            ef.SetColor(Color.blue);
-        }
-        else if (currentPlayerIndex == 1)
-        {
-            ef.SetColor(Color.red);
-        }
-
-        //Reactivate new player's pieces
-        GameObject[] pieces = GetPlayerPieces(currentPlayers[currentPlayerIndex]);
-
-        foreach(GameObject piece in pieces)
-        {
-            PieceFunctions pf = ((PieceFunctions)piece.GetComponent(typeof(PieceFunctions)));
-
-#if VIRION_DEBUG
-            if(pf == null)
-            {
-                print("unity is dumb"); //sure is
-            }
-            else
-#endif
-            {
-                int turnsTillMove = pf.TurnPassed();
-
-                if (turnsTillMove <= 0 && pf.isIncubating)
-                {
-                    FinishIncubate(piece, cam);
-                }
-            }
-
-        }
-#if VIRION_DEBUG
-        print("Turn Ended!");
-#endif
     }
 
     public void HandleSelectPiece(GameObject piece, PieceFunctions pf, Camera cam)
@@ -219,6 +178,44 @@ public class GameManager : MonoBehaviour {
         ResetSelectedCard();
         viableTiles.UnHighlightAllTiles();
     }
+
+    public void HandleEndTurn()
+    { 
+        GameObject[] oldPieces = GetPlayerPieces(currentPlayers[currentPlayerIndex]);
+        uiManager.UpdateCooldownUi(oldPieces);
+
+        //Go to next player
+        currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
+
+        //Reactivate new player's pieces
+        GameObject[] pieces = GetPlayerPieces(currentPlayers[currentPlayerIndex]);
+
+        foreach(GameObject piece in pieces)
+        {
+            PieceFunctions pf = ((PieceFunctions)piece.GetComponent(typeof(PieceFunctions)));
+
+#if VIRION_DEBUG
+            if(pf == null)
+            {
+                print("unity is dumb"); //sure is
+            }
+            else
+#endif
+            {
+                int turnsTillMove = pf.TurnPassed();
+
+                if (turnsTillMove <= 0 && pf.isIncubating)
+                {
+                    FinishIncubate(piece, Camera.main);
+                }
+            }
+
+        }
+#if VIRION_DEBUG
+        print("Turn Ended!");
+#endif
+    }
+
 
     public void HandleHitNothing()
     {
@@ -377,6 +374,7 @@ public class GameManager : MonoBehaviour {
 
     public void TestInfectionLevel()
     {
+        uiManager.UpdateInfectionFill(numCleanTiles, numTiles);
         if(numCleanTiles <= infectedTileThreshold)
         {
 #if VIRION_DEBUG
